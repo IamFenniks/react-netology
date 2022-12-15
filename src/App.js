@@ -14,9 +14,9 @@ function App() {
     price: 399,
     currency: '£'
   }
-  const now = new Date(2017, 2, 8);
+  const now = new Date();
 
-
+// debugger
   return (
     <div className='wrapper'>
       <TopNav />

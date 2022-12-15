@@ -1,14 +1,26 @@
 import React from "react";
 import './../../App.css';
+import moment from 'moment';
+
+window.moment = moment;
+
+moment.updateLocale('ru', {week: {dow: 1}})
+const startWeek = moment().startOf('month').startOf('week');
+const endWeek = moment().endOf('month').endOf('week');
+
+console.log(startWeek.format('YYYY.MM.DD'));
+console.log(endWeek.format('YYYY.MM.dd'));
 
 const Calendar = (props) => {
+    // debugger
+    
     return (
         <div className="ui-datepicker">
             <div className="ui-datepicker-material-header">
                 <div className="ui-datepicker-material-day">Среда</div>
                 <div className="ui-datepicker-material-date">
-                    <div className="ui-datepicker-material-day-num">8</div>
-                    <div className="ui-datepicker-material-month">Марта</div>
+                    <div className="ui-datepicker-material-day-num">{props.date.getDate()}</div>
+                    <div className="ui-datepicker-material-month">{props.date.getMonth()}</div>
                     <div className="ui-datepicker-material-year">2017</div>
                 </div>
             </div>

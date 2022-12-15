@@ -573,5 +573,6 @@ button:hover {
     z-index: 100;
 }
 .top_nav a{
-  color: yellow !important;
+  color: #fff !important;
+  background-color: #457;
 }
