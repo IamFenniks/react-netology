@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cd94da94.css",
+    "main.js": "/static/js/main.807ae8a8.js",
+    "static/js/787.963e5cab.chunk.js": "/static/js/787.963e5cab.chunk.js",
+    "static/media/item-blue.jpg": "/static/media/item-blue.2103f69bf3b1c8b44f34.jpg",
+    "static/media/item-black.jpg": "/static/media/item-black.dd74251d47c485703b4d.jpg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.cd94da94.css.map": "/static/css/main.cd94da94.css.map",
+    "main.807ae8a8.js.map": "/static/js/main.807ae8a8.js.map",
+    "787.963e5cab.chunk.js.map": "/static/js/787.963e5cab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd94da94.css",
+    "static/js/main.807ae8a8.js"
+  ]
+}
