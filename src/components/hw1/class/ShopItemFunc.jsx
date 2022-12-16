@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import ItemModel from './ItemModel';
 
 class ShopItemFunc extends Component {
     constructor(props) {
@@ -37,26 +38,26 @@ class ShopItemFunc extends Component {
     }
 }
 
-// Я специально создал локальный class "ShopItem", чтобы не плодить файлы
-class ShopItem {
-    constructor(brand, title, description, descriptionFull, currency, price) {
-        this.props.brand = brand;
-        this.props.title = title;
-        this.props.description = description;
-        this.props.descriptionFull = descriptionFull;
-        this.props.currency = currency;
-        this.props.price = price;
-    }
-}
-
 /*  Я не смог разобраться с этой ошибкой, хотя код работает:
    * react-jsx-dev-runtime.development.js:87 
    * Warning: Failed prop type: Invalid prop `item` of type `Object`
    * supplied to `ShopItemFunc`, expected instance of `ShopItem`.
 */
 
+  // Этот код всё равно выдал ошибку. Делаю проверку на основе объекта
+// ShopItemFunc.propTypes = {
+//     props: PropTypes.instanceOf(ItemModel).isRequired
+// }
+
 ShopItemFunc.propTypes = {
-    item: PropTypes.instanceOf(ShopItem).isRequired
-}
+    item: PropTypes.shape({
+        brand: PropTypes.string,
+        title: PropTypes.string,
+        description: PropTypes.string,
+        descriptionFull: PropTypes.string,
+        price: PropTypes.number,
+        currency: PropTypes.string
+    })
+    }
 
 export default ShopItemFunc;

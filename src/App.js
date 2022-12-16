@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import ShopItemFunc from './components/func/ShopItemFunc';
 import { Route, Routes } from 'react-router-dom';
-import TopNav from './components/TopNav';
-import Calendar from './components/func/Calendar';
+import TopNav from './components/header/top-nav/TopNav';
+import Calendar from './components/hw1/calendar/Calendar';
+import ShopItemFunc from './components/hw1/class/ShopItemFunc';
+import moment from 'moment';
 
 function App() {
   const item = {
@@ -14,7 +15,8 @@ function App() {
     price: 399,
     currency: '£'
   }
-  const now = new Date();
+
+var now = moment();
 
 // debugger
   return (

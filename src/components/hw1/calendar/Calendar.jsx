@@ -1,6 +1,7 @@
 import React from "react";
-import './../../App.css';
+import './../../../App.css';
 import moment from 'moment';
+import 'moment/locale/ru';
 
 window.moment = moment;
 
@@ -8,25 +9,35 @@ moment.updateLocale('ru', {week: {dow: 1}})
 const startWeek = moment().startOf('month').startOf('week');
 const endWeek = moment().endOf('month').endOf('week');
 
-console.log(startWeek.format('YYYY.MM.DD'));
-console.log(endWeek.format('YYYY.MM.dd'));
+// console.log(startWeek.format('YYYY.MM.DD'));
+// console.log(endWeek.format('YYYY.MM.dd'));
 
 const Calendar = (props) => {
     // debugger
+    let date = props.date;
+    moment.locale('ru');
+    console.log(date.format('dddd, MMMM DD YYYY, h:mm:ss'));
+    let newMonth = date.format('MMMM').substring(0, date.format('MMMM').length-1) + "я"
     
     return (
         <div className="ui-datepicker">
             <div className="ui-datepicker-material-header">
-                <div className="ui-datepicker-material-day">Среда</div>
+                <div className="ui-datepicker-material-day">{date.format('dddd').charAt(0).toUpperCase() + (date.format('dddd').slice(1))}</div>
                 <div className="ui-datepicker-material-date">
-                    <div className="ui-datepicker-material-day-num">{props.date.getDate()}</div>
-                    <div className="ui-datepicker-material-month">{props.date.getMonth()}</div>
-                    <div className="ui-datepicker-material-year">2017</div>
+                    <div className="ui-datepicker-material-day-num">{date.format('DD')}</div>
+                    <div className="ui-datepicker-material-month">{newMonth}</div>
+                    <div className="ui-datepicker-material-year">{date.format('YYYY')}</div>
                 </div>
             </div>
             <div className="ui-datepicker-header">
                 <div className="ui-datepicker-title">
-                    <span className="ui-datepicker-month">Март</span>&nbsp;<span className="ui-datepicker-year">2017</span>
+                    <span className="ui-datepicker-month">
+                        {date.format('MMMM').charAt(0).toUpperCase() + (date.format('MMMM').slice(1))}
+                    </span>
+                    &nbsp;
+                    <span className="ui-datepicker-year">
+                        {date.format('YYYY')}
+                    </span>
                 </div>
             </div>
             <table className="ui-datepicker-calendar">
