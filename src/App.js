@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import TopNav from './components/header/top-nav/TopNav';
 import Calendar from './components/hw1/calendar/Calendar';
 import ShopItemFunc from './components/hw1/class/ShopItemFunc';
-import moment from 'moment';
 
 function App() {
   const item = {
@@ -16,16 +15,13 @@ function App() {
     currency: '£'
   }
 
-var now = moment();
-
-// debugger
   return (
     <div className='wrapper'>
       <TopNav />
 
       <Routes>
         <Route path="/shopitem" element={<ShopItemFunc item={item} />} />
-        <Route path="/calendar" element={<Calendar date={now} />} />
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </div>
   );

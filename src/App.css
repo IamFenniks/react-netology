@@ -526,6 +526,16 @@ button:hover {
   font-weight: 300;
 }
 
+.thead{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-content: center;
+  text-align: center;
+  color: #999999;
+  font-weight: 200;
+  height: 33px;
+  line-height: 36px;
+}
 .ui-datepicker-calendar
 .ui-state-active {
   border-radius: 50%;
