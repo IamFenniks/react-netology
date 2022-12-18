@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import ItemModel from './ItemModel';
 
 class ShopItemFunc extends Component {
     constructor(props) {
