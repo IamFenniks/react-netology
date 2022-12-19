@@ -1,33 +1,50 @@
 import React from 'react';
-import moment from 'moment';
+import styled from 'styled-components';
+import {endDayOfWM, 
+        isCurrentDay, 
+        isThisMonthDay,
+        startDayOfWM
+    } 
+    from '../../../utils/moment-utils';
 
-const startOfMonth = moment().startOf('month');
-const startDayOfWM = moment().startOf('month').startOf('week');    // Начала недли в начале месяца
-const endDayOfWM = moment().endOf('month').endOf('week');          // Конец недли в конце месяца
+const TBodyGrid = styled.div`
+    display: grid;         grid-template-columns: repeat(7, 1fr);
+    align-content: center; text-align: center;    color: #999999;
+    font-weight: 200;      line-height: 36px;
+`;
+const DateCell = styled.div`
+    background-color: ${props => props.isWeekend ? "#b4cbe5" : "#ffffff"};
+    color: ${props => props.isThisMonthDay ? "#000000" : "#999999"};
+`;
+const CurrentDay = styled.div`
+    background-color: #284B72;
+    color: white;
+`;
 
-const calendar = [];                                               // Создаём масив 
-const day = startDayOfWM.clone(); // 28
+const calendar = [];
+const day = startDayOfWM.clone();
 
 while(!day.isAfter(endDayOfWM)) {
     calendar.push(day.clone());
     day.add(1, 'day');
 }
 
-const dayBefore = moment().subtract(1, 'day');
-
-console.log(dayBefore);
-
-const CalendarTBody = ({selectDate}) => {
-    
+const CalendarTBody = () => {
     return (
-        <div className="tbody">
+        <TBodyGrid>
              { calendar.map(c => {
                 return (
-                    calendar <= startOfMonth &&
-                    <button key={c} className="ui-datepicker-week-end">{c.format('D')}</button> 
+                    <DateCell 
+                        key={c}
+                        isWeekend={c.day() === 6 || c.day() === 0}
+                        isThisMonthDay={isThisMonthDay((c))}
+                    >
+                        {!isCurrentDay(c) && c.format('D')}
+                        {isCurrentDay(c) && <CurrentDay>{c.format('D')}</CurrentDay>}
+                    </DateCell> 
                 )
             }) }
-        </div>
+        </TBodyGrid>
     );
 }
 

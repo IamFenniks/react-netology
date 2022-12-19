@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import './../../../App.css';
 import moment from 'moment';
 import 'moment/locale/ru';
 
@@ -19,10 +18,7 @@ const Calendar = () => {
                  <CalendarWdHeader />                   
                 
                 {/* Calendar Tabel Body - Таблица календаря */}
-                <CalendarTBody                          
-                    selectDate={selectDate} 
-                    setSelectDate={setSelectDate} 
-                />
+                <CalendarTBody />
             </div>
         </div>
     );

@@ -1,19 +1,37 @@
 import React from 'react';
+import styled from 'styled-components';
+import moment from 'moment/moment';
+
+const THeadGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: center;
+    text-align: center;
+    color: #999999;
+    font-weight: 200;
+    height: 33px;
+    line-height: 36px;
+`;
+const DateCell = styled.div`
+    background-color: ${props => props.isWeekend ? "#b4cbe5" : "#ffffff"};
+`;
 
 const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 const CalendarWdHeader = () => {
-    const weekdayIcons = weekdays.map((day, key) => {  
-        return (  
-            <div key={key}>  
-                {day}  
-            </div>  
-        );  
-    }); 
     return (
-        <div className="thead">
-            {weekdayIcons}
-        </div>
+        <THeadGrid>
+            { weekdays.map((wd, index) => {
+                return (
+                    <DateCell 
+                        key={index}
+                        isWeekend={index === 6 || index === 5}
+                    >  
+                        {wd}
+                    </DateCell>
+                )}  
+            )}
+        </THeadGrid>
     );
 }
 
