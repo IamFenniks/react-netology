@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import TopNav from './components/header/top-nav/TopNav';
 import Calendar from './components/hw1/calendar/Calendar';
 import ShopItemFunc from './components/hw1/class/ShopItemFunc';
+import Portfolio from './components/hw2/filter/Portfolio';
 
 function App() {
   const item = {
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/shopitem" element={<ShopItemFunc item={item} />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </div>
   );

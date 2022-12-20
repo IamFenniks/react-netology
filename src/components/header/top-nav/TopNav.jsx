@@ -8,6 +8,7 @@ const TopNav = () => {
             <nav>
                 <div><Link to='shopitem'>Карточка товара</Link></div>
                 <div><Link to='calendar'>Календарь</Link></div>
+                <div><Link to='portfolio'>Портфолио</Link></div>
             </nav>
         </div>
     );
