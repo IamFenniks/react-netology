@@ -66,7 +66,7 @@ class Portfolio extends Component {
         const items = this.state.items;
 
         return (
-            <div className="portfolio">
+            <div className="portfolio m-content">
                 <Toolbar
                     filters={["All", "Websites", "Flayers", "Business Cards"]}
                     selected="All"

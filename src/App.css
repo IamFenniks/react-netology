@@ -125,9 +125,9 @@ h3 {
 .background-element {
   background: #457;
   position: absolute;
-  width: 120%;
+  width: 100%;
   height: 400px;
-  left: -50px;
+  left: 313px;
   top: -80px;
   -webkit-transform: rotate(-5deg);
       -ms-transform: rotate(-5deg);
@@ -578,11 +578,8 @@ button:hover {
 } */
 
 
-.top_nav{
-  position: relative;
-    z-index: 100;
-}
-.top_nav a{
+
+.side_nav a{
   color: #fff !important;
   background-color: #457;
 }
@@ -596,3 +593,23 @@ button:hover {
   height: auto;
   text-transform: none;
 }
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    "top_nav top_nav top_nav top_nav"
+    "side_nav m-content m-content m-content";
+}
+
+.top_nav{
+  grid-area: top_nav; 
+  height: 21px;
+}
+.side_nav{grid-area: side_nav;
+  position: relative;
+  z-index: 100;
+}
+.m-content{grid-area: m-content;}
+
+.toolbar-body img{margin: 5px;}

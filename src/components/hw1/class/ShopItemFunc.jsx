@@ -10,7 +10,7 @@ class ShopItemFunc extends Component {
         const { item } = this.props
 
         return (
-            <div className="container">
+            <div className="container m-content">
                 <div className="background-element">
                 </div>
                 <div className="highlight-window">

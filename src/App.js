@@ -5,6 +5,7 @@ import TopNav from './components/header/top-nav/TopNav';
 import Calendar from './components/hw1/calendar/Calendar';
 import ShopItemFunc from './components/hw1/class/ShopItemFunc';
 import Portfolio from './components/hw2/filter/Portfolio';
+import SideNav from './components/sidebar/SideNav';
 
 function App() {
   const item = {
@@ -19,6 +20,8 @@ function App() {
   return (
     <div className='wrapper'>
       <TopNav />
+
+      <SideNav />
 
       <Routes>
         <Route path="/shopitem" element={<ShopItemFunc item={item} />} />

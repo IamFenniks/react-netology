@@ -10,7 +10,7 @@ const Calendar = () => {
     const [selectDate, setSelectDate] = useState(moment().toDate());
 // console.log(selectDate);
     return(
-        <div className="ui-datepicker">
+        <div className="m-content ui-datepicker">
             <CalendarMatHeader selectDate={selectDate} />
 
             <div className="ui-datepicker-calendar">
