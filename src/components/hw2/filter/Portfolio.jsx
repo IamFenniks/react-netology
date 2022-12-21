@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import ProjectList from "./ProjectList";
 import Toolbar from "./Toolbar";
 
 class Portfolio extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            items: [{
+            this.state = {
+            projects: [{
                 img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
                 category: "Business Cards"
             }, {
@@ -57,25 +58,36 @@ class Portfolio extends Component {
                 img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
                 category: "Flayers"
             }],
-            filters: ["All", "Websites", "Flayers", "Business Cards"],
-
+            filters: ['All', 'Websites', 'Flayers', 'Business Cards'],
+            isActive: 'All'
         }
     }
 
+    onSelectFilter = filter => {
+        this.setState(prevState => ({
+            projects: prevState.projects.filter(project => project.category === filter)
+        }));
+        this.setState(prevState => {
+            return {isActive: filter}
+        });
+        
+        // this.onSelectProjects(filter);
+    }
+
     render() {
-        const items = this.state.items;
+        const projects = this.state.projects;
+        const filters =  this.state.filters;
 
         return (
             <div className="portfolio m-content">
                 <Toolbar
-                    filters={["All", "Websites", "Flayers", "Business Cards"]}
-                    selected="All"
-                    onSelectFilter={(filter) => { console.log(filter); }}
+                    filters={filters}
+                    selected={this.state.isActive}
+                    onSelectFilter={ this.onSelectFilter }
+                    // onSelectFilter={(filter) => { alert(filter); }}
                 />
-
-                <div className="toolbar-body">
-                    {items.map((item, index) => <img key={index} src={item.img} alt={item.category} />)}
-                </div>
+            
+                <ProjectList projects={projects} />
             </div>
         )
     }

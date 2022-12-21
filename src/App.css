@@ -584,6 +584,11 @@ button:hover {
   background-color: #457;
 }
 
+.toolbar-header .active {
+  background-color: #333;
+  color: #fff;
+}
+.toolbar-header button:active {background-color: #999;}
 .toolbar-header button {
   background: white;
   border: 1px solid #333;
