@@ -1,10 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Toolbar = ({ filters, selected, onSelectFilter }) => {
     
     let handleSelectFilter = (e) => {
         onSelectFilter(e.currentTarget.value);
-        // console.log(e.currentTarget.value)
     }
 
     return (
@@ -36,7 +36,9 @@ const Toolbar = ({ filters, selected, onSelectFilter }) => {
 }
 
 Toolbar.protoTypes = {
-
+    onClick:PropTypes.func.isRequired,
+    value:PropTypes.string.isRequired,
+    key:PropTypes.string.isRequired
 }
 
 export default Toolbar;

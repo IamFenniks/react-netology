@@ -6,7 +6,7 @@ class Portfolio extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projects: [{
+            all: [{
                 img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
                 category: "Business Cards"
             }, {
@@ -114,7 +114,10 @@ class Portfolio extends Component {
             }],
             filters: ['All', 'Websites', 'Flayers', 'Business Cards'],
             isActive: 'All',
+
+            projects: []
         }
+        this.state.projects = this.state.all
     }
     
     onSelectFilter = filter => {
@@ -122,12 +125,15 @@ class Portfolio extends Component {
             return { isActive: filter }
         });
 
+        this.handleSFIlter(filter)
+    }
+
+    handleSFIlter(filter) {
         switch (filter) {
             case 'All':
                return this.setState(prevState => ({
-                    projects: prevState.projects
+                    projects: prevState.all
                 }));
-                
             case 'Websites':
                return this.setState(prevState => ({
                     projects: prevState.websites
@@ -142,9 +148,8 @@ class Portfolio extends Component {
                 }));
             default:
                 return this.setState(prevState => ({
-                    projects: prevState.projects
+                    projects: prevState.all
                 }));
-                
         }
     }
 
@@ -157,9 +162,8 @@ class Portfolio extends Component {
                     filters={filters}
                     selected={this.state.isActive}
                     onSelectFilter={this.onSelectFilter}
-                // onSelectFilter={(filter) => { alert(filter); }}
                 />
-
+                
                 <ProjectList projects={this.state.projects} />
             </div>
         )
