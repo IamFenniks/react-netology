@@ -588,8 +588,9 @@ button:hover {
     "top_nav top_nav top_nav top_nav top_nav top_nav"
     "side_nav m-content m-content m-content m-content m-content";
 }
-.side_nav a{color: #fff !important; background-color: #457;}
+.side_nav a{color: #457;}
 .top_nav{grid-area: top_nav; height: 21px;}
+.top_nav nav{padding: 21px;}
 .side_nav{grid-area: side_nav; position: relative; z-index: 100;}
 .m-content{grid-area: m-content;}
 
