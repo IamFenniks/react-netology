@@ -31,10 +31,6 @@ const Toolbar = ({ filters, selected, onSelectFilter }) => {
                         </button>
                     )
             )}
-            {/* <button>All</button>
-            <button>Websites</button>
-            <button>Flayers</button>
-            <button>Business Cards</button> */}
         </div>
     )
 }

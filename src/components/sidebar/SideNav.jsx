@@ -9,6 +9,7 @@ const SideNav = () => {
                 <div><Link to='shopitem'>Карточка товара</Link></div>
                 <div><Link to='calendar'>Календарь</Link></div>
                 <div><Link to='portfolio'>Портфолио</Link></div>
+                <div><Link to='store'>Магазин</Link></div>
             </nav>
         </div>
     );

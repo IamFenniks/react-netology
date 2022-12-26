@@ -6,6 +6,7 @@ import Calendar from './components/hw1/calendar/Calendar';
 import ShopItemFunc from './components/hw1/class/ShopItemFunc';
 import Portfolio from './components/hw2/filter/Portfolio';
 import SideNav from './components/sidebar/SideNav';
+import Store from './components/hw2/layouts/Store';
 
 function App() {
   const item = {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/shopitem" element={<ShopItemFunc item={item} />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path='/store' element={<Store />} />
       </Routes>
     </div>
   );
