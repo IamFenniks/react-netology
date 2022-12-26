@@ -127,7 +127,7 @@ h3 {
   position: absolute;
   width: 100%;
   height: 400px;
-  left: 313px;
+  left: 201px;
   top: -80px;
   -webkit-transform: rotate(-5deg);
       -ms-transform: rotate(-5deg);
@@ -577,44 +577,151 @@ button:hover {
   margin: 50px auto;
 } */
 
+                              /* ------------------ */
+/* ==========================  myStyles START here  ========================= */
+                              /* ------------------ */
 
-
-.side_nav a{
-  color: #fff !important;
-  background-color: #457;
-}
-
-.toolbar-header .active {
-  background-color: #333;
-  color: #fff;
-}
-.toolbar-header button:active {background-color: #999;}
-.toolbar-header button {
-  background: white;
-  border: 1px solid #333;
-  color: #333;
-  padding: 5px 10px;
-  margin: 5px;
-  height: auto;
-  text-transform: none;
-}
 
 .wrapper{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(6, 1fr);
   grid-template-areas: 
-    "top_nav top_nav top_nav top_nav"
-    "side_nav m-content m-content m-content";
+    "top_nav top_nav top_nav top_nav top_nav top_nav"
+    "side_nav m-content m-content m-content m-content m-content";
 }
-
-.top_nav{
-  grid-area: top_nav; 
-  height: 21px;
-}
-.side_nav{grid-area: side_nav;
-  position: relative;
-  z-index: 100;
-}
+.side_nav a{color: #fff !important; background-color: #457;}
+.top_nav{grid-area: top_nav; height: 21px;}
+.side_nav{grid-area: side_nav; position: relative; z-index: 100;}
 .m-content{grid-area: m-content;}
 
+
+                         /* ------------------ */
+/* ==========================  Home Work 2  ========================= */
+                         /* ------------------ */
+
+
+/* HomeWork 2/1 ---- START */
+
+.toolbar-header .active {background-color: #333; color: #fff;}
+.toolbar-header button:active {background-color: #999;}
+.toolbar-header button {
+  background: white; border: 1px solid #333;
+  color: #333; padding: 5px 10px; margin: 5px;
+  height: auto; text-transform: none;
+}
 .toolbar-body img{margin: 5px;}
+
+/* HomeWork 2/1 ---- END */
+ 
+
+/* ======================================================================= */
+
+
+/* HomeWork 2/2 ---- START */
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.store{display: grid;}
+.store-header{
+  text-align: right;
+  margin-right: 20px;
+  padding: 10px;
+}
+/* .material-icons{position: absolute; right: 21px;} */
+.material-icons:hover{cursor: pointer;}
+
+                /* <=== ShopCard ===> */
+.cards-view{
+  display: grid; grid-template-columns: repeat(3, 4fr); 
+  grid-template-rows: auto; grid-gap: 11px;
+}
+.shop-card{
+  width: 260px; height: 260px;
+  padding: 31px; border-radius: 5px; 
+  background-color: #f5f5f6; text-align: center;
+  position: relative;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-name{
+  text-transform: uppercase;
+  z-index: 3; 
+  font-size: 21px;
+  position: absolute;
+  top: 7%;
+  left: 0;
+  right: 0;
+}
+.card-color {
+  position: absolute;
+  z-index: 3;
+  top: 20%;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+}
+.card-price {
+  position: absolute;
+  z-index: 3;
+  bottom: 33px;
+  left: 38px;
+  font-size: 16px;
+  color: #D77074;
+}
+button.add-to-cart {
+  position: absolute;
+  z-index: 3;
+  bottom: 25px;
+  background-color: #f5f5f6;
+  color: #D77074;
+  border: 1px solid #D77074;
+  border-radius: 10em;
+  font-weight: bold;
+  padding: 5px 15px;
+  height: 35px;
+}
+button.add-to-cart:hover{background-color: #457;}
+.card-img{
+  width: 300px; 
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+                /* <=== ShopItem ===> */
+.list-view {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  width: 96%;
+}
+.shop-item {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  text-align: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  padding: 15px 15px 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+img.item-img{width: 137px; margin-top: -50px;}
+.item-name{text-transform: uppercase; font-size: 21px;}
+.item-color{font-size: 14px;}
+.item-price{font-size: 16px; color: #D77074;}
+.item-to-cart{
+  background-color: #f5f5f6;
+  color: #D77074;
+  border: 1px solid #D77074;
+  border-radius: 10em;
+  font-weight: bold;
+  padding: 5px 15px;
+  width: fit-content;
+  height: 35px;
+}
+button.item-to-cart:hover{background-color: #457 !important;}
+
+/* HomeWork 2/2 ---- END */
+
