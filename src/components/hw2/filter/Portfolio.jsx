@@ -58,60 +58,6 @@ class Portfolio extends Component {
                 img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
                 category: "Flayers"
             }],
-            websites: [{
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/codystretch.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290.png",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_1.png",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/the_ninetys_brand.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-                category: "Websites"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197_1.jpg",
-                category: "Websites"
-            }],
-            flayers: [{
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_2.png",
-                category: "Flayers"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
-                category: "Flayers"
-            }],
-            businessCards: [{
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
-                category: "Business Cards"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_003.jpg",
-                category: "Business Cards"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-                category: "Business Cards"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/dia.jpg",
-                category: "Business Cards"
-            }, {
-                img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-                category: "Business Cards"
-            }],
             filters: ['All', 'Websites', 'Flayers', 'Business Cards'],
             isActive: 'All',
 
@@ -129,28 +75,13 @@ class Portfolio extends Component {
     }
 
     handleSFIlter(filter) {
-        switch (filter) {
-            case 'All':
-               return this.setState(prevState => ({
-                    projects: prevState.all
-                }));
-            case 'Websites':
-               return this.setState(prevState => ({
-                    projects: prevState.websites
-                }));
-            case 'Flayers':
-                return this.setState(prevState => ({
-                    projects: prevState.flayers
-                }));
-            case 'Business Cards':
-                return   this.setState(prevState => ({
-                    projects: prevState.businessCards
-                }));
-            default:
-                return this.setState(prevState => ({
-                    projects: prevState.all
-                }));
-        }
+        filter === 'All'
+            ? this.setState(prevState => ({
+                projects: prevState.all
+            }))
+            : this.setState(prevState => ({
+                projects: prevState.all.filter(p => p.category === filter)
+            }));
     }
 
     render() {
