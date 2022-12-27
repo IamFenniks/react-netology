@@ -7,6 +7,7 @@ import ShopItemFunc from './components/hw1/class/ShopItemFunc';
 import Portfolio from './components/hw2/filter/Portfolio';
 import SideNav from './components/sidebar/SideNav';
 import Store from './components/hw2/layouts/Store';
+import Dropdown from './components/hw2/dropdown/Dropdown';
 
 function App() {
   const item = {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path='/store' element={<Store />} />
+        <Route path='/dropdown' element={<Dropdown />} />
       </Routes>
     </div>
   );

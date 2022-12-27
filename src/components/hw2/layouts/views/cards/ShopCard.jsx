@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
+// import ShopModel from "./ShopModel";
 
-const ShopCard = ({key, card}) => {
+const ShopCard = ({index, card}) => {
     // debugger;
     return (
-        <div key={key} className="shop-card">
+        <div key={index} className="shop-card">
             <div className="card-name">{card.name}</div>
             <div className="card-price">${card.price}</div>
             <div className="card-color">{card.color}</div>
@@ -12,5 +14,7 @@ const ShopCard = ({key, card}) => {
         </div>
     )
 }
+
+// ShopCard.propTypes={card:PropTypes.instanceOf(ShopModel).isRequired}
 
 export default ShopCard;

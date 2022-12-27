@@ -1,9 +1,9 @@
 import React from "react";
 
-const ShopItem = ({key, item}) => {
+const ShopItem = ({index, item}) => {
     // debugger;
     return (
-        <div key={key} className="shop-item">
+        <div key={index} className="shop-item">
             <img src={item.img} className="item-img" alt={item.name} />
             <div className="item-name">{item.name}</div>
             <div className="item-color">{item.color}</div>

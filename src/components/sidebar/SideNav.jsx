@@ -10,6 +10,7 @@ const SideNav = () => {
                 <div>&#x26C4; <Link to='calendar'>Календарь</Link></div>
                 <div>&#x26C4; <Link to='portfolio'>Портфолио</Link></div>
                 <div>&#x26C4; <Link to='store'>Магазин</Link></div>
+                <div>&#x26C4; <Link to='dropdown'>Выпадающий список</Link></div>
             </nav>
         </div>
     );
