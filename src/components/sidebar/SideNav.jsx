@@ -12,6 +12,7 @@ const SideNav = () => {
                 <div>&#x26C4; <Link to='store'>Магазин</Link></div>
                 <div>&#x26C4; <Link to='dropdown'>Выпадающий список</Link></div>
                 <div>&#x26C4; <Link to='stars'>Рейтинг фильмов</Link></div>
+                <div>&#x26C4; <Link to='listing'>Список предложений</Link></div>
             </nav>
         </div>
     );

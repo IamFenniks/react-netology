@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import TopNav from "./components/header/top-nav/TopNav";
@@ -9,6 +8,7 @@ import SideNav from "./components/sidebar/SideNav";
 import Store from "./components/hw2/layouts/Store";
 import Dropdown from "./components/hw2/dropdown/Dropdown";
 import Stars from "./components/hw3/films/Stars";
+import Listing from "./components/hw3/listing/Listing";
 
 function App() {
   const item = {
@@ -34,6 +34,7 @@ function App() {
         <Route path="/store" element={<Store />} />
         <Route path="/dropdown" element={<Dropdown />} />
         <Route path="/stars" element={<Stars count={4} />} />
+        <Route path="/listing" element={<Listing />} />
       </Routes>
     </div>
   );
