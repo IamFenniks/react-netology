@@ -9,6 +9,7 @@ import Store from "./components/hw2/layouts/Store";
 import Dropdown from "./components/hw2/dropdown/Dropdown";
 import Stars from "./components/hw3/films/Stars";
 import Listing from "./components/hw3/listing/Listing";
+import Chat from "./components/hw3/chat/Chat";
 
 function App() {
   const item = {
@@ -23,7 +24,8 @@ function App() {
 
   const items = [];
 
-// console.log(parsedData);
+  const list  = [];
+
 // console.log(items);
 
   return (
@@ -40,6 +42,7 @@ function App() {
         <Route path="/dropdown" element={<Dropdown />} />
         <Route path="/stars" element={<Stars count={4} />} />
         <Route path="/listing" element={<Listing items={ items } />} />
+        <Route path="/chat" element={<Chat list ={ list  } />} />
       </Routes>
     </div>
   );

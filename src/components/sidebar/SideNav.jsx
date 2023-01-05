@@ -13,6 +13,7 @@ const SideNav = () => {
                 <div>&#x26C4; <Link to='dropdown'>Выпадающий список</Link></div>
                 <div>&#x26C4; <Link to='stars'>Рейтинг фильмов</Link></div>
                 <div>&#x26C4; <Link to='listing'>Список предложений</Link></div>
+                <div>&#x26C4; <Link to='chat'>История чата</Link></div>
             </nav>
         </div>
     );
