@@ -21,6 +21,11 @@ function App() {
     currency: "£",
   };
 
+  const items = [];
+
+// console.log(parsedData);
+// console.log(items);
+
   return (
     <div className="wrapper">
       <TopNav />
@@ -34,7 +39,7 @@ function App() {
         <Route path="/store" element={<Store />} />
         <Route path="/dropdown" element={<Dropdown />} />
         <Route path="/stars" element={<Stars count={4} />} />
-        <Route path="/listing" element={<Listing />} />
+        <Route path="/listing" element={<Listing items={ items } />} />
       </Routes>
     </div>
   );

@@ -41,7 +41,7 @@ const Store = () => {
   const onClc = () => {
     setIsToggleOn(!isToggleOn);
   }
-//  debugger;
+//  debugger; 
   return (
       <div className="store m-content">
           { isToggleOn 
