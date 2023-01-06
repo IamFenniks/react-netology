@@ -34,11 +34,12 @@ const messages = [{
 
 const Chat = ({ list }) => {
     list = messages;
+    // debugger;
     return (
         <div className="clearfix chat-container m-content">
           <div className="chat">
             <div className="chat-history">
-              <MessageHistory list={list} />
+              <MessageHistory list={messages} />
             </div>
           </div>  
         </div>

@@ -1,17 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Message = (props) => {
+const Message = ({ item, from }) => {
+    
     return (
         <li>
             <div className="message-data">
-                <span className="message-data-name"><span className="online">&#9679;</span> Виктор</span>
-                <span className="message-data-time">10:12</span>
+                <span className="message-data-name"><span className="online">&#9679;</span> {from.name}</span>
+                <span className="message-data-time">{item.time}</span>
             </div>
             <div className="message my-message">
-                Привет. Давай сегодня созвонимся. Проект практически готов, и у меня есть что показать.
+                { item.text && item.text }
             </div>
         </li>
     );
 }
+
+Response.propTypes = {
+    from: { name: PropTypes.object.isRequired },
+    time: PropTypes.string.isRequired,
+    text: PropTypes.string
+}
+
 
 export default Message;
