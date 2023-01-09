@@ -10,6 +10,7 @@ import Dropdown from "./components/hw2/dropdown/Dropdown";
 import Stars from "./components/hw3/films/Stars";
 import Listing from "./components/hw3/listing/Listing";
 import Chat from "./components/hw3/chat/Chat";
+import Hex2Rgb from "./components/hw4/hex2rgb/Hex2Rgb";
 
 function App() {
   const item = {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/stars" element={<Stars count={4} />} />
         <Route path="/listing" element={<Listing items={ items } />} />
         <Route path="/chat" element={<Chat list ={ list  } />} />
+        <Route path="/hex2grb" element={<Hex2Rgb />} />
       </Routes>
     </div>
   );
