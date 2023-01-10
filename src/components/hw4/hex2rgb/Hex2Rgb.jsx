@@ -1,52 +1,45 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import colors from "./../../../data/hex-colors"
 
 let ColorWrepper = styled.div`
-    background-color: ${props => props.inputColor}
+    background-color: ${props => props.inputColor === 'Ошибка' ? "#E94B35" : props.inputColor}
 `
-
-// const handleSubmit = (e) => {
-//     e.preventDefault();
-// }
-
+// console.log(colors);
 
 const Hex2Rgb = () => {
-    
     const [form, setForm] = useState({
-        hexName: '#34495e',
-        rgbName: ''
+        hexColor: '',
+        rgbColor: 'rgb(52, 73, 94)'
     });
     let handleHexChange = (e) => {
-        setForm(prevForm => ({...prevForm, hexName: e.target.value}));
-    
-        // var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(form.hexName);
-        // result = result ? {
-        //     r: parseInt(result[1], 16),
-        //     g: parseInt(result[2], 16),
-        //     b: parseInt(result[3], 16)
-        // } : 'Ошибка';
+        if(form.hexColor.length < 8) {
+            setForm(prevForm => ({...prevForm, hexColor: e.target.value}));
+
+            if(form.hexColor.length === (7 - 1) && colors.filter(color => color === form.hexColor)){ 
+                handleRgbChange(form.hexColor);
+            }
+
+        }else{
+            setForm(prevForm => ({...prevForm, rgbColor: "Ошибка"}));
+            setForm(prevForm => ({...prevForm, hexColor: ''}));
+            return;
+        }
     }
 
-    function getRGB(color){
-        if(color.length == 7){
-          var r = parseInt(color.substr(1,2),16);
-          var g = parseInt(color.substr(3,2),16);
-          var b = parseInt(color.substr(5,2),16);    
-          return 'rgb('+r+','+g+','+b+')' ;
-        }    
-        else
-          console.log('Enter correct value');
-      }
-      var a = getRGB('#f0f0f0');
-      if(!a){
-       a = 'Enter correct value'; 
-      
-      setForm(prevForm => ({...prevForm, rgbName: a}))
-      }
+    function handleRgbChange(hex) {
+         const color = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16) }).join(',') + ')';
+        // const r = parseInt(hex.slice(1, 3), 16);
+        // const g = parseInt(hex.slice(3, 5), 16);
+        // const b = parseInt(hex.slice(5, 7), 16);
+        // const color =  "rgb(" + r + ", " + g + ", " + b + ")" // return an object
+        // // return [ r, g, b ]
+        setForm(prevForm => ({...prevForm, rgbColor: color}));
+    }
 
     return (
         <div className="m-content">
-            <ColorWrepper className="color-wrapper" inputColor={form.hexName}>
+            <ColorWrepper className="color-wrapper" inputColor={form.rgbColor}>
                 <form className="input-box">
                     <div>
                         <input 
@@ -54,7 +47,7 @@ const Hex2Rgb = () => {
                             className="hex" 
                             name="hex" 
                             onChange={handleHexChange} 
-                            value={form.hexName}
+                            value={form.hexColor}
                         />
                     </div>
                     
@@ -62,8 +55,9 @@ const Hex2Rgb = () => {
                         <input 
                             type="text" 
                             className="rgb" 
-                            name="rgb" 
-                            value={form.rgbName} 
+                            name="rgb"
+                            onChange={handleRgbChange} 
+                            value={form.rgbColor} 
                         />
                     </div>
                 </form>
