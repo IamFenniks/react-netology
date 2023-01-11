@@ -1259,7 +1259,7 @@ top:5px;
 
 
 /* HomeWork 4/1 ---- START */
-.color-wrapper {
+.color-wrapper, .steps-wraper {
   width: 100%;
   height: 100vh;
   display: grid;
@@ -1293,7 +1293,59 @@ input.rgb {
 
 
 /* HomeWork 4/2 ---- START */
+.steps-wraper{grid-template-rows: auto auto;}
+.steps-form{
+  display: grid;
+  grid-template-columns: 5fr 5fr 2fr;
+  width: 530px;
+  margin: 0 auto;
+  position: relative;
+}
+.steps-form label{text-align: left;}
+.steps-form input{padding-left: 5px;}
+.steps-form input, .steps-form button{
+  width: 190px;
+  height: 48px;
+  margin-top: 12px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  border-width: thin;
+}
+.steps-form input:hover, .steps-form button:hover {
+  background-color: lightblue;
+}
+.steps-form button{
+  width: 82px; 
+  height: 52px;
+  border: 1px solid #000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
+.table-wrapper {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  margin-top: 25px;
+  width: 530px;
+  margin: 25px auto;
+}
+.t-header, .tb-row{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 25px 0;
+}
+.t-body {
+  border: 1px solid #000;
+  border-radius: 25px;
+  padding: 25px 0 0;
+}
+.tb-row{margin: 0; margin-bottom: 25px;}
+.tb-column a{margin: 0 10px;}
+.tb-column a:hover{ font-weight: 600; color: lightblue;}
 /* HomeWork 4/2 ---- END */
 
 
@@ -1301,3 +1353,11 @@ input.rgb {
 
 
 /* HomeWork 4/3 ---- START */
+
+/* HomeWork 4/3 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 5/1 ---- START */
