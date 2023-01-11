@@ -16,24 +16,19 @@ const Hex2Rgb = () => {
         if(form.hexColor.length < 8) {
             setForm(prevForm => ({...prevForm, hexColor: e.target.value}));
 
-            if(form.hexColor.length === (7 - 1) && colors.filter(color => color === form.hexColor)){ 
+            if(form.hexColor.length === 7 && colors.filter(color => color === form.hexColor)){ 
                 handleRgbChange(form.hexColor);
             }
 
         }else{
             setForm(prevForm => ({...prevForm, rgbColor: "Ошибка"}));
             setForm(prevForm => ({...prevForm, hexColor: ''}));
-            return;
+            // return;
         }
     }
 
     function handleRgbChange(hex) {
-         const color = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16) }).join(',') + ')';
-        // const r = parseInt(hex.slice(1, 3), 16);
-        // const g = parseInt(hex.slice(3, 5), 16);
-        // const b = parseInt(hex.slice(5, 7), 16);
-        // const color =  "rgb(" + r + ", " + g + ", " + b + ")" // return an object
-        // // return [ r, g, b ]
+        const color = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16) }).join(',') + ')';
         setForm(prevForm => ({...prevForm, rgbColor: color}));
     }
 
@@ -43,6 +38,7 @@ const Hex2Rgb = () => {
                 <form className="input-box">
                     <div>
                         <input 
+                            autoFocus={true}
                             type="text" 
                             className="hex" 
                             name="hex" 

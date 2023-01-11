@@ -15,6 +15,7 @@ const SideNav = () => {
                 <div>&#x26C4; <Link to='listing'>Список предложений</Link></div>
                 <div>&#x26C4; <Link to='chat'>История чата</Link></div>
                 <div>&#x26C4; <Link to='hex2grb'>Конвертор цветов</Link></div>
+                <div>&#x26C4; <Link to='steps'>Учёт тренировок</Link></div>
             </nav>
         </div>
     );
