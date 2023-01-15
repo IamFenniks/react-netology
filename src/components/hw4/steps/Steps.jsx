@@ -6,7 +6,7 @@ const Steps = () => {
     
     const [item, setItem] = useState({
         date: '',
-        steps: null
+        steps: ''
     });
 // debugger;
     const addData = (date, steps) => {

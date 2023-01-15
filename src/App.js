@@ -12,6 +12,7 @@ import Listing from "./components/hw3/listing/Listing";
 import Chat from "./components/hw3/chat/Chat";
 import Hex2Rgb from "./components/hw4/hex2rgb/Hex2Rgb";
 import Steps from "./components/hw4/steps/Steps";
+import ReadMe from "./components/tests/ReadMe";
 
 function App() {
   const item = {
@@ -47,6 +48,7 @@ function App() {
         <Route path="/chat" element={<Chat list ={ list  } />} />
         <Route path="/hex2grb" element={<Hex2Rgb />} />
         <Route path="/steps" element={<Steps />} />
+        <Route path="/tests" element={<ReadMe />} />
       </Routes>
     </div>
   );
