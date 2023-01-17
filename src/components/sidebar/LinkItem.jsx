@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LinkItem = ({ menu }) => {
-    const {link, linkName} = menu;
-    debugger;
+const LinkItem = ({ link, name }) => {
     return (
-        <div>&#x26C4; <Link to={link}>{ linkName }</Link></div>
+        <div>&#x26C4; <Link to={link}>{ name }</Link></div>
     );
 }
 

@@ -1344,8 +1344,9 @@ input.rgb {
   padding: 25px 0 0;
 }
 .tb-row{margin: 0; margin-bottom: 25px;}
-.tb-column a{margin: 0 10px;}
-.tb-column a:hover{ font-weight: 600; color: lightblue;}
+.tb-column button{margin: 0 10px;background-color: transparent; color: #333; height: auto;}
+.tb-column button:hover{ font-weight: 600; color: lightblue;}
+.dr-down{padding: 7px 0; border-bottom: 1px solid lightblue;}
 /* HomeWork 4/2 ---- END */
 
 
