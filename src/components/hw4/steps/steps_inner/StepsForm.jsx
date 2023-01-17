@@ -1,6 +1,9 @@
+import { nanoid } from "nanoid";
 import React, { useState } from "react";
+import StepsModel from "../StepsModel";
+import PropTypes from "prop-types";
 
-const StepsForm = (props) => {
+const StepsForm = ({ addData }) => {
     // debugger;
     const [form, setForm] = useState({
         date: '',
@@ -8,18 +11,21 @@ const StepsForm = (props) => {
     });
     
     const handleDateChange = (e) => {
-        setForm(prevForm => ({...prevForm, date: e.target.value}));        
+        const {name, value} = e.target;
+        setForm(prevForm => ({...prevForm, [name]: value}));        
     }
     
     const handleStepsChange = (e) => {
-        setForm(prevForm => ({...prevForm, steps: e.target.value}));
+        const {name, value} = e.target;
+        setForm(prevForm => ({...prevForm, [name]: value}));
     }
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        evt.type && form.date !== '' && form.steps !== null
-            ? props.addData(form.date, form.steps)
-            : alert("Вы не ввели все данные");
+        const date =form.date.replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`);
+        const data = new StepsModel(nanoid(), date, form.steps); 
+        addData(data);
+        setForm({date: '', steps: ''});
 
         // console.log(evt.type); // выводит submit
         // console.log(evt.target); // выводит всю форму в html
@@ -38,6 +44,10 @@ const StepsForm = (props) => {
             <button type="submit">OK</button>
         </form>
     );
+}
+
+StepsForm.propTypes = {
+    addData: PropTypes.func.isRequired
 }
 
 export default StepsForm;
