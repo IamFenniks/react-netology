@@ -1,10 +1,8 @@
 import React from "react";
 
-const StepsTable = ({ items, onRemove }) => {
-    const handleDelete = id => {
-        onRemove(id);
-    }
-    const handleEdit = id => {}
+const StepsTable = ({ items, onRemove, onEdit }) => {
+    const handleDelete = id => { onRemove(id); }
+    const handleEdit = id => { onEdit(id) }
     const tableHeader = [ 'Дата (ДД.ММ.ГГ)', 'Пройдено км', 'Действия' ];
 
     return (
@@ -19,7 +17,7 @@ const StepsTable = ({ items, onRemove }) => {
                             <div className="tb-column">{i.date}</div>
                             <div className="tb-column">{i.steps}</div>
                             <div className="tb-column">
-                                <button onClick={ handleEdit }>&#x270E;</button>
+                                <button onClick={ () => handleEdit(i.id) }>&#x270E;</button>
                                 <button onClick={ () => handleDelete(i.id) }>&#10008;</button>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ const BookItem = (props) => {
     const {book, onRemove: handleRemove, onDone: handleDone} = props;
     return (
         <li>
-            {book.read && 'V'} {book.name}
+            {book.read && '√'} {book.name}
             <button onClick={() => handleDone(book.id)}>Done!</button>
             <button onClick={() => handleRemove(book.id)}>Remove</button>
         </li>

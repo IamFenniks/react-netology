@@ -54,8 +54,8 @@ const SideNav = () => {
                     link: 'steps',
                     name: 'Учёт тренировок'
                 },{
-                    link: 'chat',
-                    name: 'История чата'
+                    link: 'photo',
+                    name: 'Менеджер фото'
                 }
             ]
         }
