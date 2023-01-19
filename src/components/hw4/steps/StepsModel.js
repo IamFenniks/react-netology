@@ -1,8 +1,8 @@
 class StepsModel {
-    constructor(id, date, steps){
+    constructor(id, date, dist){
         this.id = id
         this.date = date;
-        this.steps = steps;
+        this.dist = dist;
     }
 }
 export default StepsModel;

@@ -4,10 +4,9 @@ import StepsModel from "../StepsModel";
 import PropTypes from "prop-types";
 
 const StepsForm = ({ addData }) => {
-    // debugger;
     const [form, setForm] = useState({
         date: '',
-        steps: ''
+        dist: 0
     });
     
     const handleDateChange = (e) => {
@@ -22,24 +21,21 @@ const StepsForm = ({ addData }) => {
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        const date =form.date.replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`);
-        const data = new StepsModel(nanoid(), date, form.steps); 
+        const data = new StepsModel(nanoid(), form.date, form.dist); 
         addData(data);
-        setForm({date: '', steps: ''});
-
-        // console.log(evt.type); // выводит submit
-        // console.log(evt.target); // выводит всю форму в html
+        
+        setForm({date: '', dist: ''});
     }
-    // console.log(form.steps)
+    
     return (
         <form onSubmit={ handleSubmit } className="steps-form">
             <label htmlFor="date">
                 Дата (ДД.ММ.ГГ)
                 <input type="date" id="date" name="date" onChange={handleDateChange} value={form.date} />
             </label>
-            <label htmlFor="steps">
+            <label htmlFor="dist">
                 Пройдено км
-                <input type="text" id="steps" name="steps" onChange={handleStepsChange} value={form.steps} />
+                <input type="number" step="any" id="dist" name="dist" onChange={handleStepsChange} value={form.dist} />
             </label>
             <button type="submit">OK</button>
         </form>
