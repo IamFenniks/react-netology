@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
+import StepsModel from "./StepsModel";
 import StepsForm from "./steps_inner/StepsForm";
 import StepsTable from "./steps_inner/StepsTable";
 
@@ -8,40 +9,54 @@ const Steps = () => {
     const [editItem, setEditItem] = useState([]);
     // const [newObj, setNewObj] = useState([]);
 
-    const handleAddData = data => { // {id: '01', date: '2023-01-18', dist: '2.3'}
-        setSteps(prevSteps => [...prevSteps, data]);
-    }
-
-    // Находим одинакове даты и сумируем их километры
-    var holder = {};
-    steps.forEach(function (d) {
-        if (holder.hasOwnProperty(d.date)) {
-            holder[d.date] = holder[d.date] + parseFloat(d.dist);
-        } else {
-            holder[d.date] = parseFloat(d.dist);
+    const handleAddData = data => {
+        debugger
+        if(steps.length < 1) {
+            data.id = nanoid();
+            setSteps(prevSteps => [...prevSteps, data]);
+            console.log(data);
         }
-    });
 
-    // Создаём новый массив и заносим в него уже уникальные пункты
-    let newObj = [];
-    for (let prop in holder) {
-        newObj.push({ id: nanoid(), date: prop, dist: holder[prop] });
+        // Находим одинакове даты и сумируем их километры
+        var holder = {};
+        steps.forEach(function (d) {
+            if (holder.hasOwnProperty(d.date)) {
+                debugger
+                holder[d.date] = holder[d.date] + parseFloat(d.dist);
+            } else {
+                debugger
+                // holder[d.date] = parseFloat(d.dist);
+                data.id = nanoid();
+                setSteps(prevSteps => [...prevSteps, data]);
+                return;
+            }
+        });
+
+        // Создаём новый массив и заносим в него уже уникальные пункты
+        // let newObj = [];
+        for (let prop in holder) {
+            debugger
+            const newData = new StepsModel({ id: nanoid(), date: prop, dist: holder[prop] });
+            console.log('new data: ' + newData);
+            setSteps(prevSteps => [...prevSteps, newData]);
+            // newObj.push({ id: nanoid(), date: prop, dist: holder[prop] });
+        }
+        
+        // setSteps(prevSteps => [...prevSteps, newData]);
     }
 
     // Сортируем пункты согласно даты
     const sortFunction = (a, b) => {
+        debugger
         let dateA = new Date(a.date);
         let dateB = new Date(b.date);
         return dateA > dateB ? 1 : -1;
     };
     // Отсортировав переворачиваем их: ранние внизу, поздние вверху и сохраняем в новой константе 
-    const newSteps = newObj.sort(sortFunction).reverse();
+    const newSteps = steps.sort(sortFunction).reverse();
 
     const handleRemove = id => {
-       return newObj.forEach(function (el, i) {
-        el.id === id && newObj.splice(i, 1)
-    })
-        // setSteps(prevSteps => prevSteps.filter(o => o.id !== id)); 
+        setSteps(prevSteps => prevSteps.filter(o => o.id !== id)); 
     }
 
     const handleEdit = id => {

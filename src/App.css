@@ -1354,7 +1354,35 @@ input.rgb {
 
 
 /* HomeWork 4/3 ---- START */
-
+.click-to-select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 250px; 
+  border:1px solid #333; 
+  border-radius: 10px; 
+  background-color: #fff;
+  margin: 20px; 
+  pointer-events: auto;
+  position: relative;
+}
+.click-to-select input[type="file"] {
+  width: 100%; 
+  height: inherit;
+  opacity: 0;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+}
+.click-to-select label{
+  font-weight: normal;
+  font-size: 28px;
+}
+.click-to-select label:hover{
+  cursor: pointer; 
+  text-decoration: underline;
+}
 /* HomeWork 4/3 ---- END */
 
 

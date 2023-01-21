@@ -21,7 +21,7 @@ const StepsForm = ({ addData }) => {
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        const data = new StepsModel(nanoid(), form.date, form.dist); 
+        const data = new StepsModel(null, form.date, form.dist); 
         addData(data);
         
         setForm({date: '', dist: ''});
