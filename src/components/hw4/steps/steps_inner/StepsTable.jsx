@@ -1,11 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const StepsTable = ({ items, onRemove, onEdit }) => {
     const handleDelete = date => { onRemove(date); }
-    const handleEdit = id => { onEdit(id) }
+    const handleEdit = date => { onEdit(date); }
     const tableHeader = [ 'Дата (ДД.ММ.ГГ)', 'Пройдено км', 'Действия' ];
     
-    debugger;
     return (
         <div className="table-wrapper">
             <div className="t-header">
@@ -18,7 +18,7 @@ const StepsTable = ({ items, onRemove, onEdit }) => {
                             <div className="tb-column">{i.date.replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</div>
                             <div className="tb-column">{i.dist}</div>
                             <div className="tb-column">
-                                <button onClick={ () => handleEdit(i.id) }>&#x270E;</button>
+                                <button onClick={ () => handleEdit(i.date) }>&#x270E;</button>
                                 <button onClick={ () => handleDelete(i.date) }>&#10008;</button>
                             </div>
                         </div>
@@ -29,5 +29,10 @@ const StepsTable = ({ items, onRemove, onEdit }) => {
     );
 }
 
+StepsTable.propTypes = {
+    items: PropTypes.object.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired
+}
 
 export default StepsTable;

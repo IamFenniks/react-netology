@@ -3,18 +3,21 @@ import React, { useState } from "react";
 import StepsModel from "../StepsModel";
 import PropTypes from "prop-types";
 
-const StepsForm = ({ addData }) => {
+const StepsForm = ({ addData, editMode, onEditItem }) => {
+    debugger
     const [form, setForm] = useState({
         date: '',
         dist: 0
     });
     
     const handleDateChange = (e) => {
+        editMode = false;
         const {name, value} = e.target;
         setForm(prevForm => ({...prevForm, [name]: value}));        
     }
     
     const handleStepsChange = (e) => {
+        editMode = false;
         const {name, value} = e.target;
         setForm(prevForm => ({...prevForm, [name]: value}));
     }
@@ -31,11 +34,24 @@ const StepsForm = ({ addData }) => {
         <form onSubmit={ handleSubmit } className="steps-form">
             <label htmlFor="date">
                 Дата (ДД.ММ.ГГ)
-                <input type="date" id="date" name="date" onChange={handleDateChange} value={form.date} />
+                <input 
+                    type="date" 
+                    id="date" 
+                    name="date" 
+                    onChange={handleDateChange} 
+                    value={ !editMode ? form.date : onEditItem.date } 
+                />
             </label>
             <label htmlFor="dist">
                 Пройдено км
-                <input type="number" step="any" id="dist" name="dist" onChange={handleStepsChange} value={form.dist} />
+                <input 
+                    type="number" 
+                    step="any" 
+                    id="dist" 
+                    name="dist" 
+                    onChange={handleStepsChange} 
+                    value={ !editMode ? +'3' + form.dist : onEditItem.dist } 
+                />
             </label>
             <button type="submit">OK</button>
         </form>

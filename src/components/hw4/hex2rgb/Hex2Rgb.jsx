@@ -11,14 +11,6 @@ const Hex2Rgb = () => {
     });
     let handleHexChange = (e) => {
 
-
-        // if (value.length <= 25) {
-        // var regexp = /^[a-zа-яё,._\-/=!?1-90\s]+$/i;
-        // if(!value || regexp.test(value)) {
-        //     this.setState({filter_search: value});
-        // }
-        // }
-
         const value = e.target.value;
         if(value.length <= 7) {
             

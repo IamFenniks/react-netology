@@ -1,14 +1,12 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import StepsModel from "./StepsModel";
 import StepsForm from "./steps_inner/StepsForm";
 import StepsTable from "./steps_inner/StepsTable";
 
 const Steps = () => {
     const [steps, setSteps] = useState([]);
     const [editItem, setEditItem] = useState([]);
-    const [tempData, setTempData] = useState([]);
+    const [editMode, setEditMode] = useState(false);
 
     const handleAddData = data => {
         data.id = nanoid();
@@ -29,7 +27,6 @@ const Steps = () => {
         newObj.push({ id: nanoid(), date: prop, dist: holder[prop] });
     }
 
-
     // Сортируем пункты согласно даты
     const sortFunction = (a, b) => {
         // debugger
@@ -41,13 +38,18 @@ const Steps = () => {
     // Отсортировав переворачиваем их: ранние внизу, поздние вверху и сохраняем в новой константе 
     const newSteps = newObj.sort(sortFunction).reverse();
 
-    const handleEdit = id => {
-        setEditItem(prevEditItem => ({
-            prevEditItem, function() {
-                return steps.filter(s => s.id === id && s);
-            }
-        }));
+    const handleEdit = date => {
+        setEditMode(true);
+        
+        steps.filter(s => {
+            s.date === date &&
+                setEditItem(prevEditItem => [...prevEditItem, s]);
+            return;
+        });
+        
+        
     }
+    alert(editMode)
 
     const handleRemove = date => {
         setSteps(prevSteps => prevSteps.filter(o => o.date !== date));
@@ -56,7 +58,7 @@ const Steps = () => {
     return (
         <div className="m-content">
             <div className="steps-wraper">
-                <StepsForm addData={handleAddData} />
+                <StepsForm addData={handleAddData} editMode={editMode} onEditItem={editItem} />
                 <StepsTable items={newSteps} onRemove={handleRemove} onEdit={handleEdit} />
             </div>
         </div>
@@ -64,10 +66,3 @@ const Steps = () => {
 }
 
 export default Steps;
-
-// const newData = steps.reduce((a,c)=>{    // a = [], с = StepsModel {id: 'foifjodsfj', date: '2023-01-01', dist: '1.5'}
-//     let x = a.find(e=>e.date===c.date)
-//     if(!x) a.push(Object.assign({},c))
-//     else  x.dist += c.dist
-//     return new StepsModel(a.id, a.date, a.dist);  // Object.assign({}, a)
-// },[]);
