@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import colors from "./../../../data/hex-colors"
 
 let ColorWrepper = styled.div`
     background-color: ${props => props.inputColor === 'Ошибка' ? "#E94B35" : props.inputColor}
 `
-// console.log(colors);
-
 const Hex2Rgb = () => {
     const [form, setForm] = useState({
         hexColor: '',
         rgbColor: 'rgb(52, 73, 94)'
     });
     let handleHexChange = (e) => {
-        if(form.hexColor.length < 8) {
+
+
+        // if (value.length <= 25) {
+        // var regexp = /^[a-zа-яё,._\-/=!?1-90\s]+$/i;
+        // if(!value || regexp.test(value)) {
+        //     this.setState({filter_search: value});
+        // }
+        // }
+
+        const value = e.target.value;
+        if(value.length <= 7) {
+            
             setForm(prevForm => ({...prevForm, hexColor: e.target.value}));
 
-            if(form.hexColor.length === 7 && colors.filter(color => color === form.hexColor)){ 
-                handleRgbChange(form.hexColor);
+            if(value.length === 7){ 
+                let color = hexToRgbConverter(value);
+                setForm(prevForm => ({...prevForm, rgbColor: color}));
+            }else{
+                setForm(prevForm => ({...prevForm, hexColor: e.target.value}));
             }
 
         }else{
@@ -27,9 +38,11 @@ const Hex2Rgb = () => {
         }
     }
 
-    function handleRgbChange(hex) {
-        const color = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16) }).join(',') + ')';
-        setForm(prevForm => ({...prevForm, rgbColor: color}));
+    const hexToRgbConverter = (value) => {
+        let  result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(value);  
+        return result 
+          ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` 
+          : null;
     }
 
     return (
@@ -42,6 +55,7 @@ const Hex2Rgb = () => {
                             type="text" 
                             className="hex" 
                             name="hex" 
+                            maxLenght="7"
                             onChange={handleHexChange} 
                             value={form.hexColor}
                         />
@@ -52,7 +66,6 @@ const Hex2Rgb = () => {
                             type="text" 
                             className="rgb" 
                             name="rgb"
-                            onChange={handleRgbChange} 
                             value={form.rgbColor} 
                         />
                     </div>

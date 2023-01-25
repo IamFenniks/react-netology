@@ -1,10 +1,11 @@
 import React from "react";
 
 const StepsTable = ({ items, onRemove, onEdit }) => {
-    const handleDelete = id => { onRemove(id); }
+    const handleDelete = date => { onRemove(date); }
     const handleEdit = id => { onEdit(id) }
     const tableHeader = [ 'Дата (ДД.ММ.ГГ)', 'Пройдено км', 'Действия' ];
-// debugger;
+    
+    debugger;
     return (
         <div className="table-wrapper">
             <div className="t-header">
@@ -18,7 +19,7 @@ const StepsTable = ({ items, onRemove, onEdit }) => {
                             <div className="tb-column">{i.dist}</div>
                             <div className="tb-column">
                                 <button onClick={ () => handleEdit(i.id) }>&#x270E;</button>
-                                <button onClick={ () => handleDelete(i.id) }>&#10008;</button>
+                                <button onClick={ () => handleDelete(i.date) }>&#10008;</button>
                             </div>
                         </div>
                         ) 
