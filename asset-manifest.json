@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-netology/static/css/main.5e7531e2.css",
-    "main.js": "/react-netology/static/js/main.529de018.js",
+    "main.css": "/react-netology/static/css/main.c740cb63.css",
+    "main.js": "/react-netology/static/js/main.c2e86737.js",
     "static/js/787.963e5cab.chunk.js": "/react-netology/static/js/787.963e5cab.chunk.js",
     "static/media/item-blue.jpg": "/react-netology/static/media/item-blue.2103f69bf3b1c8b44f34.jpg",
     "static/media/item-black.jpg": "/react-netology/static/media/item-black.dd74251d47c485703b4d.jpg",
     "index.html": "/react-netology/index.html",
-    "main.5e7531e2.css.map": "/react-netology/static/css/main.5e7531e2.css.map",
-    "main.529de018.js.map": "/react-netology/static/js/main.529de018.js.map",
+    "main.c740cb63.css.map": "/react-netology/static/css/main.c740cb63.css.map",
+    "main.c2e86737.js.map": "/react-netology/static/js/main.c2e86737.js.map",
     "787.963e5cab.chunk.js.map": "/react-netology/static/js/787.963e5cab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e7531e2.css",
-    "static/js/main.529de018.js"
+    "static/css/main.c740cb63.css",
+    "static/js/main.c2e86737.js"
   ]
 }
