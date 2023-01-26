@@ -3,33 +3,43 @@ import React, { useState } from "react";
 import StepsModel from "../StepsModel";
 import PropTypes from "prop-types";
 
-const StepsForm = ({ addData, editMode, onEditItem }) => {
+const StepsForm = ({ addData, editMode, onEditItem,  setEditMode, setEditItem }) => {
     debugger
     const [form, setForm] = useState({
+        id: '',
         date: '',
         dist: 0
     });
+
+    if(editMode && form.date === '') {
+        debugger;
+        setForm({...form, id: onEditItem[0].id, date: onEditItem[0].date, dist: onEditItem[0].dist});
+    }
     
     const handleDateChange = (e) => {
-        editMode = false;
         const {name, value} = e.target;
         setForm(prevForm => ({...prevForm, [name]: value}));        
     }
     
     const handleStepsChange = (e) => {
-        editMode = false;
         const {name, value} = e.target;
         setForm(prevForm => ({...prevForm, [name]: value}));
     }
 
     const handleSubmit = evt => {
+        debugger
         evt.preventDefault();
-        const data = new StepsModel(null, form.date, form.dist); 
+        let data = {};
+        !editMode
+            ? data = new StepsModel('', form.date, form.dist)
+            : data = {id: form.id, date: form.date, dist: form.dist}; 
         addData(data);
         
-        setForm({date: '', dist: ''});
+        setForm({id: '', date: '', dist: ''});
+        setEditItem({id: '', date: '', dist: ''});
+        setEditMode(false);
     }
-    
+
     return (
         <form onSubmit={ handleSubmit } className="steps-form">
             <label htmlFor="date">
@@ -39,7 +49,7 @@ const StepsForm = ({ addData, editMode, onEditItem }) => {
                     id="date" 
                     name="date" 
                     onChange={handleDateChange} 
-                    value={ !editMode ? form.date : onEditItem.date } 
+                    value={ form.date } 
                 />
             </label>
             <label htmlFor="dist">
@@ -50,7 +60,7 @@ const StepsForm = ({ addData, editMode, onEditItem }) => {
                     id="dist" 
                     name="dist" 
                     onChange={handleStepsChange} 
-                    value={ !editMode ? +'3' + form.dist : onEditItem.dist } 
+                    value={ form.dist } 
                 />
             </label>
             <button type="submit">OK</button>

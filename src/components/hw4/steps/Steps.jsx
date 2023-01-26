@@ -4,13 +4,37 @@ import StepsForm from "./steps_inner/StepsForm";
 import StepsTable from "./steps_inner/StepsTable";
 
 const Steps = () => {
+    debugger
     const [steps, setSteps] = useState([]);
-    const [editItem, setEditItem] = useState([]);
+    const [editItem, setEditItem] = useState({
+        id: '',
+        date: '',
+        dist: 0
+    });
     const [editMode, setEditMode] = useState(false);
 
     const handleAddData = data => {
-        data.id = nanoid();
-        setSteps(prevSteps => [...prevSteps, data]);
+        if (!data.id) { debugger
+            data.id = nanoid();
+            setSteps(prevSteps => [...prevSteps, data]);
+        } else { debugger
+            // steps.filter(s => {
+            //     s.id === data.id &&
+            //         setSteps(prevSteps => [...prevSteps, data]);
+            //         // setSteps({...steps, id: data.id, date: data.date, dist: data.dist});
+            //     return;
+            // });
+
+            let updatedItems = steps.map(item => 
+                {
+                  if (item.id === data.id){
+                    return {...item, id: data.id, date: data.date, dist: data.dist}; //gets everything that was already in item, and updates "done"
+                  }
+                  return item; // else return unmodified item 
+                });
+            
+              setSteps(updatedItems); // set state to new object with updated list
+        }
     }
 
     var holder = {};
@@ -40,16 +64,14 @@ const Steps = () => {
 
     const handleEdit = date => {
         setEditMode(true);
-        
+
         steps.filter(s => {
             s.date === date &&
-                setEditItem(prevEditItem => [...prevEditItem, s]);
+                setEditItem(prevEditItem => [{...prevEditItem, id: s.id, date: s.date, dist: s.dist}]);
             return;
         });
-        
-        
+
     }
-    alert(editMode)
 
     const handleRemove = date => {
         setSteps(prevSteps => prevSteps.filter(o => o.date !== date));
@@ -58,7 +80,7 @@ const Steps = () => {
     return (
         <div className="m-content">
             <div className="steps-wraper">
-                <StepsForm addData={handleAddData} editMode={editMode} onEditItem={editItem} />
+                <StepsForm addData={handleAddData} editMode={editMode} onEditItem={editItem} setEditMode={setEditMode} setEditItem={setEditItem} />
                 <StepsTable items={newSteps} onRemove={handleRemove} onEdit={handleEdit} />
             </div>
         </div>

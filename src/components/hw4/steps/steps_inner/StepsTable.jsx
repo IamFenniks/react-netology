@@ -30,7 +30,7 @@ const StepsTable = ({ items, onRemove, onEdit }) => {
 }
 
 StepsTable.propTypes = {
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     onRemove: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired
 }
