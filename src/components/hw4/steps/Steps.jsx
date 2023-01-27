@@ -4,7 +4,6 @@ import StepsForm from "./steps_inner/StepsForm";
 import StepsTable from "./steps_inner/StepsTable";
 
 const Steps = () => {
-    debugger
     const [steps, setSteps] = useState([]);
     const [editItem, setEditItem] = useState({
         id: '',
@@ -14,17 +13,10 @@ const Steps = () => {
     const [editMode, setEditMode] = useState(false);
 
     const handleAddData = data => {
-        if (!data.id) { debugger
+        if (!data.id) {
             data.id = nanoid();
             setSteps(prevSteps => [...prevSteps, data]);
-        } else { debugger
-            // steps.filter(s => {
-            //     s.id === data.id &&
-            //         setSteps(prevSteps => [...prevSteps, data]);
-            //         // setSteps({...steps, id: data.id, date: data.date, dist: data.dist});
-            //     return;
-            // });
-
+        } else {
             let updatedItems = steps.map(item => 
                 {
                   if (item.id === data.id){
@@ -33,7 +25,7 @@ const Steps = () => {
                   return item; // else return unmodified item 
                 });
             
-              setSteps(updatedItems); // set state to new object with updated list
+            setSteps(updatedItems); // set state to new object with updated list
         }
     }
 
@@ -53,7 +45,6 @@ const Steps = () => {
 
     // Сортируем пункты согласно даты
     const sortFunction = (a, b) => {
-        // debugger
         let dateA = new Date(a.date); // dateA: Sat Jan 14 2023 03:00:00 GMT+0300 (Москва, стандартное время)
         let dateB = new Date(b.date);
         return dateA > dateB ? 1 : -1;
@@ -80,7 +71,7 @@ const Steps = () => {
     return (
         <div className="m-content">
             <div className="steps-wraper">
-                <StepsForm addData={handleAddData} editMode={editMode} onEditItem={editItem} setEditMode={setEditMode} setEditItem={setEditItem} />
+                <StepsForm addData={handleAddData} editMode={editMode} editingItem={editItem} setEditMode={setEditMode} setEditItem={setEditItem} />
                 <StepsTable items={newSteps} onRemove={handleRemove} onEdit={handleEdit} />
             </div>
         </div>

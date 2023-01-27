@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import StepsModel from "../StepsModel";
 import PropTypes from "prop-types";
 
-const StepsForm = ({ addData, editMode, onEditItem,  setEditMode, setEditItem }) => {
-    debugger
+const StepsForm = ({ addData, editMode, editingItem,  setEditMode, setEditItem }) => {
     const [form, setForm] = useState({
         id: '',
         date: '',
@@ -12,8 +11,7 @@ const StepsForm = ({ addData, editMode, onEditItem,  setEditMode, setEditItem })
     });
 
     if(editMode && form.date === '') {
-        debugger;
-        setForm({...form, id: onEditItem[0].id, date: onEditItem[0].date, dist: onEditItem[0].dist});
+        setForm({...form, id: editingItem[0].id, date: editingItem[0].date, dist: editingItem[0].dist});
     }
     
     const handleDateChange = (e) => {
@@ -27,7 +25,6 @@ const StepsForm = ({ addData, editMode, onEditItem,  setEditMode, setEditItem })
     }
 
     const handleSubmit = evt => {
-        debugger
         evt.preventDefault();
         let data = {};
         !editMode
@@ -69,7 +66,11 @@ const StepsForm = ({ addData, editMode, onEditItem,  setEditMode, setEditItem })
 }
 
 StepsForm.propTypes = {
-    addData: PropTypes.func.isRequired
+    addData:     PropTypes.func.isRequired, 
+    editMode:    PropTypes.bool.isRequired, 
+    editingItem:  PropTypes.object.isRequired,  
+    setEditMode: PropTypes.bool.isRequired, 
+    setEditItem: PropTypes.func.isRequired
 }
 
 export default StepsForm;
