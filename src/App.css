@@ -1259,7 +1259,7 @@ top:5px;
 
 
 /* HomeWork 4/1 ---- START */
-.color-wrapper, .steps-wraper {
+.color-wrapper, .steps-wraper, .calc-wrapper {
   width: 100%;
   height: 100vh;
   display: grid;
@@ -1427,6 +1427,20 @@ form.click-to-select:active {
   width: 100%;
 }
 /* HomeWork 4/3 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 4/4 ---- START */
+.depo-form{
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+.depo-form legend{text-align: left;}
+.calc_responce{width: 350px; margin: 0 auto; text-align: left;}
+/* HomeWork 4/4 ---- END */
 
 
 /* ======================================================================= */

@@ -56,6 +56,9 @@ const SideNav = () => {
                 },{
                     link: 'photo',
                     name: 'Менеджер фото'
+                },{
+                    link: 'deposits',
+                    name: 'Калькулятор вклада'
                 }
             ]
         }
