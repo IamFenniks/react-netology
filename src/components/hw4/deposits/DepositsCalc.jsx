@@ -13,7 +13,8 @@ const DepositsCalc = () => {
     }
 
     let compoundInterest = (persent) => {
-        return depoSum * Math.pow(1 + (persent/100)/365, period*30);
+        let sum = depoSum * Math.pow(1 + (persent/100)/365, period*30);
+        return Math.round(sum * 100) / 100;
     };
 
     let persent = 0.0;

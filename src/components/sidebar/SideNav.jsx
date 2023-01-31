@@ -61,16 +61,32 @@ const SideNav = () => {
                     name: 'Калькулятор вклада'
                 }
             ]
+        },{
+            id: 4,
+            drop : [
+                {
+                    link: 'cards',
+                    name: 'Карточки'
+                },{
+                    link: 'decomposition',
+                    name: 'Декомпозиция'
+                },{
+                    link: 'collapse',
+                    name: 'Collapse'
+                }
+            ]
         }
     ];
 
     // debugger;
     return (
-        <div className="side_nav">
+        <aside className="side_nav">
             <nav>
-                { menu.map(m => <DropDown key={m.id} id={m.id} drop={m.drop} />) }
+                { menu.map(m => 
+                    <DropDown key={m.id} id={m.id} drop={m.drop} />) 
+                }
             </nav>
-        </div>
+        </aside>
     );
 }
 

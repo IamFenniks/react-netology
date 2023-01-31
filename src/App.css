@@ -592,8 +592,8 @@ button:hover {
     "side_nav m-content m-content m-content m-content m-content";
     margin:0 auto;
   padding:0;
-  /* width:calc(100% - 5rem); */
 }
+.m-content h2{margin:0 21px 21px;}
 .side_nav a{color: #457;}
 .top_nav{
   grid-area: top_nav; 
@@ -610,7 +610,7 @@ button:hover {
 }
 .top_nav nav{padding: 21px;}
 .side_nav{grid-area: side_nav; position: relative; z-index: 100; padding: 20px;}
-.m-content{grid-area: m-content;}
+.m-content{grid-area: m-content; padding: 21px;}
 
 
                          /* ------------------ */
@@ -1447,3 +1447,19 @@ form.click-to-select:active {
 
 
 /* HomeWork 5/1 ---- START */
+.m-content .row {--bs-gutter-x: 0;}
+.card {width: 18rem; margin:0 16px 32px; height: fit-content;}
+.card img{height: 180px; background-color:rgb(134, 142, 150);}
+img.card-img-top[alt="Заголовок карточки"] {
+  color: white;
+  text-align: center;
+  padding-top: 25%;
+  font-size: 22px;
+}
+/* HomeWork 5/1 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 5/2 ---- START */

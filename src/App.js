@@ -12,9 +12,12 @@ import Listing from "./components/hw3/listing/Listing";
 import Chat from "./components/hw3/chat/Chat";
 import Hex2Rgb from "./components/hw4/hex2rgb/Hex2Rgb";
 import Steps from "./components/hw4/steps/Steps";
-import ReadMe from "./components/tests/ReadMe";
+import ReadMe from "./components/tests/read-me/ReadMe";
 import PhotoManager from "./components/hw4/photo/PhotoManager";
 import DepositsCalc from "./components/hw4/deposits/DepositsCalc";
+import Cards from "./components/hw5/cards/Cards";
+import Decomposition from "./components/hw5/decomposition/Decomposition";
+import Collapse from "./components/hw5/collapse/Collapse";
 
 function App() {
   const item = {
@@ -40,18 +43,21 @@ function App() {
       <SideNav />
 
       <Routes>
-        <Route path="/shopitem" element={<ShopItemFunc item={item} />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/dropdown" element={<Dropdown />} />
-        <Route path="/stars" element={<Stars count={4} />} />
-        <Route path="/listing" element={<Listing items={ items } />} />
-        <Route path="/chat" element={<Chat list ={ list  } />} />
-        <Route path="/hex2grb" element={<Hex2Rgb />} />
-        <Route path="/steps" element={<Steps />} />
-        <Route path="/photo" element={<PhotoManager />} />
-        <Route path="/deposits" element={<DepositsCalc />} />
+        <Route path="/shopitem"      element={<ShopItemFunc item={item} />} />
+        <Route path="/calendar"      element={<Calendar />} />
+        <Route path="/portfolio"     element={<Portfolio />} />
+        <Route path="/store"         element={<Store />} />
+        <Route path="/dropdown"      element={<Dropdown />} />
+        <Route path="/stars"         element={<Stars count={4} />} />
+        <Route path="/listing"       element={<Listing items={ items } />} />
+        <Route path="/chat"          element={<Chat list ={ list  } />} />
+        <Route path="/hex2grb"       element={<Hex2Rgb />} />
+        <Route path="/steps"         element={<Steps />} />
+        <Route path="/photo"         element={<PhotoManager />} />
+        <Route path="/deposits"      element={<DepositsCalc />} />
+        <Route path="/cards"         element={<Cards />} />
+        <Route path="/decomposition" element={<Decomposition />} />
+        <Route path="/collapse"      element={<Collapse />} />
         {/* =================== tests ================== */}
         <Route path="/tests" element={<ReadMe />} />
       </Routes>
