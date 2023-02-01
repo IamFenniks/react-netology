@@ -1463,16 +1463,60 @@ img.card-img-top[alt="Заголовок карточки"] {
 
 
 /* HomeWork 5/2 ---- START */
+
+/* ------- Header start ---------- */
 .deco-header {
   display: grid;
   grid-template-columns: 8fr 4fr;
   padding: 0 100px;
+  margin-bottom: 25px;
 }
-.deco-header li {
-  float: left;
+.deco-header ul{margin-bottom: 10px;}
+.deco-header li{display: inline-block; font-weight: 600;}
+.exchange-rates li {margin-right: 32px;}
+.exchange-rates span {color: #D1D1D1;}
+li.bar-head {
   margin: 0 21px;
-  font-weight: 600;
+  color: #82AFE1;
 }
+li.bar-head:first-child {
+  color: #2E70BE;
+}
+li.bar-head:last-child {
+  color: #D1D1D1;
+  font-weight: normal;
+  font-size: 12px;
+}
+.bar-body p {margin-bottom: 7px;}
+.bar-body img {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+}
+.exchange-rates {
+  margin-left: 25px;
+}
+/* ------- Header end ---------- */
+
+/* ------- Search start---------- */
+.search{width: 100%;}
+.search .nav{padding:0 100px;}
+.search .input{width:100%;}
+.search .hint{padding:0 100px;}
+
+/* ------- Search end---------- */
+
+/* ------- Bunner start---------- */
+.bunner{padding:0 100px;}
+.bunner img {
+  width: 100%;
+  height: auto;
+}
+/* ------- Bunner end---------- */
+
+/* ------- Info start---------- */
+/* ------- Info end---------- */
+
 /* HomeWork 5/2 ---- END */
 
 
