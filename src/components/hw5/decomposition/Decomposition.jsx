@@ -25,7 +25,29 @@ import Search from "./search/Search";
     // ++++++++++++ Header end ++++++++++
     const [serchNav, setSeachNav] = useState([
         'Видео', 'Картинки', 'Новости', 'Крты', 'Мркет', 'Переводчик', 'Эфир', 'ещё']);
-
+    // ++++++++++++ Search end ++++++++++
+    const [infoBlocks, setInfoBlocks] = useState([
+        {
+            infoTitle: 'Погода',
+            infoData: {
+                img: 'https://static.dzeninfra.ru/weather/i/icons/funky/dark/ovc.svg',
+                degrees: '+17',
+                prognoz: 'утром +17, днём +20'
+            }
+        },{
+            infoTitle: 'Посещаемое',
+            infoData: ['Недвижимость-о сталинках', 'Маркет-люстры и светильники', 'Авто.ру-привод 4х4 до 500000']
+        },{
+            infoTitle: 'Карта Германии',
+            infoData: 'Расписание'
+        },{
+            infoTitle: 'Телепрограмма',
+            infoData: ['02:00 THT. Best. THT international', '02:15 Джинглики. Карусель INT', '02:25 Наедине со всеми. Первый']
+        },{
+            infoTitle: 'Эфир',
+            infoData: ['Управление как искусство Успех', 'Ночь. Мир в это время EarthTV', 'Андрей Возн. Совершенно секретно']
+        }
+    ]);
     
     return (
         <div className="m-content">
@@ -37,7 +59,7 @@ import Search from "./search/Search";
 
             <Bunner />
 
-            <Info />
+            <Info infoBlocks={infoBlocks} />
         </div>
     );
 };

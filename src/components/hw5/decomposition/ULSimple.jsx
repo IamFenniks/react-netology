@@ -1,11 +1,14 @@
 import React from "react";
 
-const ULSimple = props => {
-    const headItem = newsHead.map(item => 
-        <ListItem className="bar-head">{ item }</ListItem>)
+let ListItem = props =>
+    <li className={props.className}>{props.children}</li>
+
+const ULSimple = ({navList}) => {
+    const headItem = navList.map(item => 
+        <ListItem key={item} className="bar-head">{ item }</ListItem>);
 
     return (
-        <ul>{props.children}</ul>
+        <ul>{headItem}</ul>
     );
 }
 
