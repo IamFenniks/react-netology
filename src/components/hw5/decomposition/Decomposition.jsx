@@ -5,6 +5,11 @@ import Header from "./header/Header";
 import Info from "./info/Info";
 import Search from "./search/Search";
 
+/**
+ * Компонент хранит глобальный Стейт и передаёт в дочерние компоненты соответсвующие данные из него
+ * @returns {jsx} Возвращает дочерние элементы в ввиде (jsx-code)
+ */
+
  const Decomposition = () => {
     const [advContent, setAdvContent] = useState(
         {imgSrc: '', advTitle: 'Работа над ошибками', advText: 'Смотрите на Яндексе и запоминайте'}
@@ -29,17 +34,18 @@ import Search from "./search/Search";
     const [infoBlocks, setInfoBlocks] = useState([
         {
             infoTitle: 'Погода',
-            infoData: {
+            infoData: [{
                 img: 'https://static.dzeninfra.ru/weather/i/icons/funky/dark/ovc.svg',
                 degrees: '+17',
                 prognoz: 'утром +17, днём +20'
-            }
-        },{
+            }]
+        },
+        {
             infoTitle: 'Посещаемое',
             infoData: ['Недвижимость-о сталинках', 'Маркет-люстры и светильники', 'Авто.ру-привод 4х4 до 500000']
         },{
             infoTitle: 'Карта Германии',
-            infoData: 'Расписание'
+            infoData: ['Расписание']
         },{
             infoTitle: 'Телепрограмма',
             infoData: ['02:00 THT. Best. THT international', '02:15 Джинглики. Карусель INT', '02:25 Наедине со всеми. Первый']
@@ -48,6 +54,7 @@ import Search from "./search/Search";
             infoData: ['Управление как искусство Успех', 'Ночь. Мир в это время EarthTV', 'Андрей Возн. Совершенно секретно']
         }
     ]);
+    // ++++++++++++ Info block end ++++++++++
     
     return (
         <div className="m-content">

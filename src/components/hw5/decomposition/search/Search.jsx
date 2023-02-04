@@ -1,9 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ULSimple from "../ULSimple";
 
 let ListItem = props =>
     <li className={props.className}>{props.children}</li>
 
+/**
+ * Блок ввода поисковых запросов Яндекс-search 
+ * 
+ * @param {array} serchNav - Список кнопок переключения блоков по поисковым запросам 
+ * @returns {JSX.Element} - Возвращает JSX-разметку
+ */
 const Search = ({serchNav}) => {
     const bodyItem = serchNav.map(item => 
         <ListItem key={item} className="search-nav">{ item }</ListItem>);
@@ -27,6 +34,10 @@ const Search = ({serchNav}) => {
             </div>
         </div>
     );
+}
+
+Search.propTypes = {
+    serchNav: PropTypes.array.isRequired
 }
 
 export default Search;

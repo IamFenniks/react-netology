@@ -1534,7 +1534,7 @@ li.bar-head:last-child {
 /* ------- Search end---------- */
 
 /* ------- Bunner start---------- */
-.bunner{padding:0 100px;}
+.bunner{padding:0 100px; margin-bottom: 25px;}
 .bunner img {
   width: 100%;
   height: auto;
@@ -1542,7 +1542,11 @@ li.bar-head:last-child {
 /* ------- Bunner end---------- */
 
 /* ------- Info start---------- */
-.info{width: 100%; height: 250px; overflow: hidden; column-count: 3;}
+.info{width: 100%; height: 180px; overflow: hidden; column-count: 3;}
+.block{margin-bottom: 12px;}
+.block h3{text-transform: none; color: #82afe1; font-weight: normal;}
+.block img{width: 52px;}
+.block img+span{font-size: 32px;}
 /* ------- Info end---------- */
 
 /* HomeWork 5/2 ---- END */
