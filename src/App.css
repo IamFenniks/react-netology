@@ -1556,3 +1556,21 @@ li.bar-head:last-child {
 
 
 /* HomeWork 5/3 ---- START */
+.bd-example {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem -0.75rem 0;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+}
+.bd-example button.btn.btn-primary {
+  text-transform: none;
+  margin-left: 5px;
+}
+/* HomeWork 5/3 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 6/1 ---- START */
