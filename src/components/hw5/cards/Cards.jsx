@@ -1,18 +1,10 @@
 import React from "react";
+import Card from "./Card";
+import CardImage from "./CardImage";
 
 const CardRow = props =>
     <div className={props.className}>
         {props.children}
-    </div>
-
-const CardImage = props =>
-    <img src="..." className={props.className} alt={props.imgTitle} title={props.imgTitle} />
-
-const CardBody = props =>
-    <div className={props.className}>
-        <h5 className="card-title">{props.title}</h5>
-        <p className="card-text">{props.introtext}</p>
-        <a href="#" className="btn btn-primary">{props.btnTitle}</a>
     </div>
 
 const Cards = (props) => {
@@ -33,25 +25,22 @@ const Cards = (props) => {
             <h2>Карточки</h2>
 
             <CardRow className="row">
-                <div className="card">
-                    <CardImage 
-                        className="card-img-top" 
-                        imgTitle={cardBodyContent[0].title}
-                    />
-                    <CardBody 
-                        className="card-body"
-                        title={cardBodyContent[0].title}
-                        introtext={cardBodyContent[0].introtext}
-                        btnTitle={cardBodyContent[0].btnTitle}
-                    />
-                </div>
+                <Card >
+                    <Card.Img className="card-img-top" alt={cardBodyContent.title} title={cardBodyContent.title} />
+                    <Card.Body>
+                        <Card.Title className="card-title">{cardBodyContent[0].title}</Card.Title>
+                        <Card.Text className="card-text">{cardBodyContent[0].introtext}</Card.Text>
+                        <Card.Link href="#" className="btn btn-primary">{cardBodyContent[0].btnTitle}</Card.Link>
+                    </Card.Body>
+                </Card>
 
-                <div class="card">
-                    <CardBody 
-                        className="card-body"
-                        {...cardBodyContent[1]}
-                    />
-                </div>
+                <Card>
+                <Card.Body>
+                        <Card.Title className="card-title">{cardBodyContent[1].title}</Card.Title>
+                        <Card.Text className="card-text">{cardBodyContent[1].introtext}</Card.Text>
+                        <Card.Link href="#" className="btn btn-primary">{cardBodyContent[1].btnTitle}</Card.Link>
+                    </Card.Body>
+                </Card>
             </CardRow>
         </div>
     );
