@@ -18,6 +18,7 @@ const Search = ({serchNav}) => {
     return (
         <div className="search">
             <div className="nav">
+                {/* <ULSimple navList={bodyItem} /> */}
                 <ul>{bodyItem}</ul>
             </div> 
 
