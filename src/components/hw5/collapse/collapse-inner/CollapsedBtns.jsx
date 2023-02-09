@@ -1,12 +1,16 @@
 import React from "react";
 
-const CollapsedBtns = ({handlExpand, collapsedLabel}) => {
-    const handlExpand = () => {
-        handlExpand = true;
+const CollapsedBtns = ({ onSetName }) => {
+    const handlExpand = (e) => {
+        e.preventDefault();
+        let name = e.target.name;
+        onSetName(name);
     }
     
-    const handleCollaps = () => {
-        collapsedLabel = false;
+    const handleCollaps = (e) => {
+        e.preventDefault();
+        let name = e.target.name;
+        onSetName(name);
     }
     
     return (
@@ -14,11 +18,13 @@ const CollapsedBtns = ({handlExpand, collapsedLabel}) => {
             <a className="btn btn-primary" 
                 href="#"
                 onClick={handlExpand}
+                name="expandedLabel"
             >
                 Развернуть
             </a>
             <button className="btn btn-primary"
                 onClick={handleCollaps}
+                name="collapsedLabel"
             >
                 Свернуть текст
             </button>

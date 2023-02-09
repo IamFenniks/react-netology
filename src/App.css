@@ -1567,6 +1567,38 @@ li.bar-head:last-child {
   text-transform: none;
   margin-left: 5px;
 }
+
+.show{
+  animation: fadeInFromNone 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.collapse{
+  animation: fadeOutBlock 1s ease-in-out;
+}
+@keyframes fadeOutBlock {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 /* HomeWork 5/3 ---- END */
 
 
