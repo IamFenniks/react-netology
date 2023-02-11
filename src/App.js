@@ -18,6 +18,9 @@ import DepositsCalc from "./components/hw4/deposits/DepositsCalc";
 import Cards from "./components/hw5/cards/Cards";
 import Decomposition from "./components/hw5/decomposition/Decomposition";
 import Collapse from "./components/hw5/collapse/Collapse";
+import Watches from "./components/hw6/watches/Watches";
+import CRUD from "./components/hw6/crud/CRUD";
+import ChatTwo from "./components/hw6/chat-two/ChatTwo";
 
 function App() {
   const item = {
@@ -58,6 +61,9 @@ function App() {
         <Route path="/cards"         element={<Cards />} />
         <Route path="/decomposition" element={<Decomposition />} />
         <Route path="/collapse"      element={<Collapse />} />
+        <Route path="/watches"       element={<Watches />} />
+        <Route path="/crud"          element={<CRUD />} />
+        <Route path="/chat-two"      element={<ChatTwo />} />
         {/* =================== tests ================== */}
         <Route path="/tests" element={<ReadMe />} />
       </Routes>

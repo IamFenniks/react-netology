@@ -75,6 +75,20 @@ const SideNav = () => {
                     name: 'Collapse'
                 }
             ]
+        },{
+            id: 5,
+            drop : [
+                {
+                    link: 'watches',
+                    name: 'Мировые часы'
+                },{
+                    link: 'crud',
+                    name: 'CRUD'
+                },{
+                    link: 'chat-two',
+                    name: 'Collapse'
+                }
+            ]
         }
     ];
 

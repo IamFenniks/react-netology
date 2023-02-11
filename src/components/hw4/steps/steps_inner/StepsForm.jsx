@@ -46,7 +46,7 @@ const StepsForm = ({ addData, editMode, editingItem,  setEditMode, setEditItem }
                     id="date" 
                     name="date" 
                     onChange={handleDateChange} 
-                    value={ form.date } 
+                    defaultValue={ form.date } 
                 />
             </label>
             <label htmlFor="dist">
@@ -57,7 +57,7 @@ const StepsForm = ({ addData, editMode, editingItem,  setEditMode, setEditItem }
                     id="dist" 
                     name="dist" 
                     onChange={handleStepsChange} 
-                    value={ form.dist } 
+                    defaultValue={ form.dist } 
                 />
             </label>
             <button type="submit">OK</button>

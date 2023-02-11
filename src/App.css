@@ -1606,3 +1606,27 @@ li.bar-head:last-child {
 
 
 /* HomeWork 6/1 ---- START */
+.ww-controlPanel {
+  width: 563px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 12px;
+  justify-content: left;
+  position: relative;
+}
+.ww-controlPanel label {
+  display: inline-grid;
+  grid-gap: 5px;
+}
+.ww-controlPanel button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/* HomeWork 6/1 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 6/2 ---- START */
