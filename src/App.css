@@ -178,7 +178,7 @@ a:hover {
   text-decoration:underline;
   color:#666;
 }
-button {
+.purchase-info button, .portfolio button {
   background:#333;
   border:none;
   font-weight:400;
@@ -198,6 +198,7 @@ button:hover {
   background:#555;
   -webkit-transition:all .3s ease;
           transition:all .3s ease;
+  color: #fff;
 }
 .divider {
   width:80%;
@@ -610,6 +611,16 @@ button:hover {
 }
 .top_nav nav{padding: 21px;}
 .side_nav{grid-area: side_nav; position: relative; z-index: 100; padding: 20px;}
+.dr-down:hover {
+  cursor: pointer;
+  background: aliceblue;
+}
+.dr-down .dr-inner {
+  display: none;
+}
+.dr-down.active .dr-inner {
+  display: block;
+}
 .m-content{grid-area: m-content; padding: 21px;}
 
 
@@ -1594,7 +1605,7 @@ li.bar-head:last-child {
 
 /* HomeWork 6/1 ---- START */
 .ww-controlPanel {
-  width: 563px;
+  width: 510px;
   margin-bottom: 32px;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -1610,12 +1621,14 @@ li.bar-head:last-child {
   position: absolute;
   right: 0;
   bottom: 0;
+  border-width: 1px;
+  border-radius: 3px;
 }
 .ww-demoList {
   display: flex;
 }
 .clock {
-  width: 120px;
+  width: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1623,6 +1636,23 @@ li.bar-head:last-child {
   border: solid 1px #ccc;
   border-radius: 5px;
   margin: 5px;
+  padding: 10px;
+}
+.clock-top{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: stretch;
+}
+.clock-top h3 {
+  float: left;
+  text-transform: none;
+}
+.clock-top button {
+  background: transparent;
+  border: none;
+}
+.clock-top button:hover {
+  color: darkgray;
 }
 .clock .digital-clock {
   padding: 10px;

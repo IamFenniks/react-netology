@@ -14,7 +14,6 @@ const Watches = () => {
   
   const handleRemove = id =>
     setClockData(prevClockData => prevClockData.filter(o => o.id !== id));
-
   return (
       <div className="m-content">
         <div className="clearfix world-watches">

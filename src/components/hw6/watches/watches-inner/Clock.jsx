@@ -36,8 +36,11 @@ export default class Clock extends React.Component {
         const { id, title } = this.props;
         return (
             <div className={"clock"}>
-                <button onClick={ () => this.handleDelete(id) }>&#10008;</button>
-                <h3>{title}</h3>
+                <div className="clock-top">
+                    <h3>{title}</h3>
+                    <button onClick={ () => this.handleDelete(id) }>&#10008;</button>
+                </div>
+
                 <div className={"analog-clock"}>
                     <div className={"dial seconds"} style={secondsStyle} />
                     <div className={"dial minutes"} style={minutesStyle} />
@@ -51,7 +54,8 @@ export default class Clock extends React.Component {
     }
 
     handleDate() {
-        const { dateDiff } = this.props;
+        
+        const dateDiff = this.props;
         const date = new Date();
         date.setHours(date.getHours() + dateDiff);
         let hours = this.formatTime(date.getHours());
