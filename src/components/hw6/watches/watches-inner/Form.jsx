@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import ClockModel from "./../ClockModel";
+import PropTypes from "prop-types";
 
 const Form = (props) => {
     const {nameLabel, zoneLabel, btnName} = props.formData;
@@ -25,6 +26,8 @@ const Form = (props) => {
         evt.preventDefault();
         let data = new ClockModel(nanoid(), form.name, form.tZone)
         props.addData(data);
+
+        setForm({ name: '', tZone: '' })
     }
 
     return (
@@ -36,24 +39,32 @@ const Form = (props) => {
                     id="name" 
                     name="name" 
                     onChange={handleNameChange} 
-                    defaultValue={form.name}
+                    value={form.name}
                 />
             </label>
 
             <label htmlFor="tZone" >
                 {zoneLabel}
                 <input 
-                    type="text" 
+                    type="number" 
                     id="tZone" 
                     name="tZone" 
                     onChange={handleTZoneChange} 
-                    defaultValue={form.tZone}
+                    value={form.tZone}
                 />
             </label>
 
             <button>{btnName}</button>
         </form>
     );
+}
+
+Form.propTypes = {
+    className: PropTypes.string,
+    nameLabel: PropTypes.string,
+    zoneLabel: PropTypes.string,
+    btnName:   PropTypes.string,
+    addData:   PropTypes.func.isRequired
 }
 
 export default Form;

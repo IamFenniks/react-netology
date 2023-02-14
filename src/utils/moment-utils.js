@@ -18,6 +18,7 @@ export const getReadableMonthDate = (date) => moment(date).format('MMMM').substr
 export const getMonthDate = (date) => moment(date).format('MMMM').charAt(0).toUpperCase() + (moment(date).format('MMMM').slice(1));
 
 export const getMonthDayYear = (date) => moment(date).format('MM-DD-YYYY');
+export const getHour = (date) => moment(date).format('LTS');
 
 
 export const startDayOfWM = moment().startOf('month').startOf('week');    // Начала недли в начале месяца

@@ -1,4 +1,6 @@
 import * as React from "react";
+import PropTypes from "prop-types";
+import 'moment/locale/ru';
 
 export default class Clock extends React.Component {
     clockInterval = "";
@@ -33,7 +35,8 @@ export default class Clock extends React.Component {
         const hoursStyle = {
             transform: `rotate(${hours * 30}deg)`
         };
-        const { id, title } = this.props;
+        const {id, title} = this.props;
+        
         return (
             <div className={"clock"}>
                 <div className="clock-top">
@@ -54,17 +57,24 @@ export default class Clock extends React.Component {
     }
 
     handleDate() {
-        
-        const dateDiff = this.props;
+        const { dateDiff } = this.props;
         const date = new Date();
-        date.setHours(date.getHours() + dateDiff);
+        date.setHours(date.getHours() + parseInt(dateDiff));
         let hours = this.formatTime(date.getHours());
         let minutes = this.formatTime(date.getMinutes());
         let seconds = this.formatTime(date.getSeconds());
         this.setState({ hours, minutes, seconds });
-    }
-
-    formatTime(time) {
+      }
+    
+      formatTime(time) {
         return time < 10 ? `0${time}` : time;
-    }
+      }
+}
+
+Clock.propTypes = {
+    className: PropTypes.string,
+    name: PropTypes.string,
+    tZone: PropTypes.string,
+    id:   PropTypes.string.isRequired,
+    deleteData:   PropTypes.func.isRequired
 }

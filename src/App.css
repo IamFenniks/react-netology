@@ -1636,12 +1636,11 @@ li.bar-head:last-child {
   border: solid 1px #ccc;
   border-radius: 5px;
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 .clock-top{
   display: grid;
-  grid-template-columns: auto auto;
-  justify-items: stretch;
+  grid-template-columns: 10fr 2fr;
 }
 .clock-top h3 {
   float: left;
@@ -1661,15 +1660,15 @@ li.bar-head:last-child {
   width: 100px;
   height: 100px;
   border: solid 1px #000;
-  border-radius: 10em;
+  border-radius: 50%;
   position: relative;
   background: #fff;
 }
 .clock .analog-clock .dial {
   position: absolute;
   left: 50%;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   transform-origin: bottom left;
 }
 .clock .analog-clock .dial.seconds {
@@ -1679,11 +1678,12 @@ li.bar-head:last-child {
   border-left: solid 2px #000;
 }
 .clock .analog-clock .dial.hours {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   top: 15px;
   border-left: solid 2px #000;
 }
+
 
 /* HomeWork 6/1 ---- END */
 
