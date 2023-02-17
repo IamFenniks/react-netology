@@ -2,15 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CrudBody = (props) => {
-    const handleDelete = () => {
-
-    }
+    const {id, text, deleteItem} = props;
+    const handleDelete = id => deleteItem(id);
 
     return (
         <div className="crud-body preview">
-            <button onClick={() => handleDelete(props.noteText.id)}>&#9587;</button>
+            <button onClick={() => handleDelete(id)}>&#9587;</button>
 
-            <p>{props.noteText.text}</p>
+            <p>{text}</p>
         </div>
     );
 }

@@ -3,28 +3,30 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import CrudModel from "../CrudModel";
 
-const CrudForm = (props) => {
+const CrudForm = ({ className, addData }) => {
     const [form, setForm] = useState({ text: '' });
 
     const handleChange = (evt) => {
-        setForm(evt.target.value);        
+        const {name, value} = evt.target;
+        setForm(prevForm => ({...prevForm, [name]: value}));        
     }
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
         let noteText = new CrudModel(nanoid(), form.text)
-        props.addData(noteText);
+        // console.log(noteText)
+        addData(noteText);
 
         setForm({ text: ''})
     }
 
     return (
-        <form onSubmit={handleSubmit} className={props.className}>
+        <form onSubmit={handleSubmit} className={className}>
             <div className="form-wrapper">
-                <label htmlFor="noteText">
+                <label htmlFor="text">
                     <textarea 
-                        name="noteText" 
-                        id="noteText" 
+                        name="text" 
+                        id="text" 
                         cols="35" 
                         rows="6"
                         value={form.text}
@@ -40,9 +42,6 @@ const CrudForm = (props) => {
 
 CrudForm.propTypes = {
     className: PropTypes.string,
-    // nameLabel: PropTypes.string,
-    // zoneLabel: PropTypes.string,
-    // btnName:   PropTypes.string,
     addData:   PropTypes.func.isRequired
 }
 

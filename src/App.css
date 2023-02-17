@@ -1719,7 +1719,10 @@ li.bar-head:last-child {
   font-size: 14px;
   font-weight: 600;
 }
-
+.preview-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 .form-wrapper {
   width: min-content;
   position: relative;
