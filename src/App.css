@@ -1683,8 +1683,6 @@ li.bar-head:last-child {
   top: 15px;
   border-left: solid 2px #000;
 }
-
-
 /* HomeWork 6/1 ---- END */
 
 
@@ -1692,3 +1690,60 @@ li.bar-head:last-child {
 
 
 /* HomeWork 6/2 ---- START */
+.update-btn {
+  margin-bottom: 21px;
+}
+.update-btn h2 {
+  float: left;
+  margin-right: 25px;
+  text-transform: none;
+}
+.update-btn button {
+  background: transparent;
+  border-width: 1px;
+  border-radius: 10em;
+  font-size: 26px;
+  padding: 0 10px;
+  color: #39CF4D;
+  font-weight: 600;
+}
+.update-btn button:hover{background-color: #ADD8E6; color: greenyellow;}
+.update-btn button:active {background-color: #999;}
+
+.crud-body {
+  padding: 12px;
+  box-sizing: content-box;
+}
+.crud-body button {
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-wrapper {
+  width: min-content;
+  position: relative;
+}
+.form-wrapper button {
+  background: transparent;
+  border-width: 1px;
+  border-radius: 10em;
+  font-size: 25px;
+  padding: 0 7px;
+  color: #000;
+  font-weight: 600;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+}
+.form-wrapper button:hover {
+  background: lightblue;
+}
+.form-wrapper button:active {background-color: #999;}
+/* HomeWork 6/2 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 6/3 ---- START */
