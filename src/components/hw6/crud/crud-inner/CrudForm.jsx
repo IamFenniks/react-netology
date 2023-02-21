@@ -13,9 +13,9 @@ const CrudForm = ({ className, addData }) => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        let noteText = new CrudModel(nanoid(), form.text)
+        let noteData = new CrudModel(nanoid(), form.text)
         // console.log(noteText)
-        addData(noteText);
+        addData(noteData);
 
         setForm({ text: ''})
     }

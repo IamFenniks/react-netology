@@ -1,26 +1,65 @@
-import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { noteReduser } from "./backend/noteReduser";
 import CrudBody from "./crud-inner/CrudBody";
 import CrudForm from "./crud-inner/CrudForm";
 import UpdateBtn from "./crud-inner/UpdateBtn";
 
 const CRUD = () => {
-  const [noteText, setNoteText] = useState([]);
+  const [state, setState] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleAddText = text =>
-    setNoteText(prevNoteText => [...prevNoteText, text]);
+  useEffect(() => {
+    const loadData = async () => {
+      const result = await noteReduser({method: 'get'});
+      setState([...result]);
+    }
 
-  const handleRemove = id =>
-    setNoteText(prevNoteText => prevNoteText.filter(o => o.id !== id));
+    loadData();
+
+    setLoading(false);
+  }, []);
+
   
+
+  const handleAddText =  async (noteData) => {
+    await noteReduser({ method: 'post', noteData });
+
+    const result = await noteReduser({method: 'get'});
+    setState([...result]);
+    // debugger
+  }
+    
+
+  const handleRemove = async (id) => {
+    await noteReduser({id, method: 'delete'});
+
+    const result = await noteReduser({method: 'get'});
+    setState([...result]);
+  }
+    
+  const handleUpdate = async () => {
+    const result = await noteReduser({method: 'get'});
+    setState([...result]);
+    debugger
+  }
+
   return (
     <div className="m-content">
       <h2>CRUD - реализация</h2>
-      <UpdateBtn /> 
+      <UpdateBtn updateNotes={handleUpdate} /> 
 
-      <div className="preview-wrapper">
-        { noteText.map(item => <CrudBody key={item.id} id={item.id} text={item.text} deleteItem={handleRemove} /> )}
-      </div>
+      { loading 
+        ? <div>Loading...</div> 
+
+        : <div className="preview-wrapper">
+          { 
+            state.map(item => 
+              <CrudBody key={item.id} id={item.id} text={item.text} deleteItem={handleRemove} /> 
+            )
+          }
+        </div>
+      }
+      
       
       <CrudForm className="new-note" addData={handleAddText} />
     </div>

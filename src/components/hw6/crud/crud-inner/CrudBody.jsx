@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const CrudBody = (props) => {
     const {id, text, deleteItem} = props;
+    
     const handleDelete = id => deleteItem(id);
 
     return (
@@ -15,8 +16,8 @@ const CrudBody = (props) => {
 }
 
 CrudBody.propTypes = {
-    text: PropTypes.string.isRequired,
-    id:   PropTypes.string.isRequired,
+    text: PropTypes.string,
+    id:   PropTypes.string,
     deleteItem:   PropTypes.func.isRequired
 }
 

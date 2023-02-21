@@ -596,6 +596,9 @@ button:hover {
 }
 .m-content h2{margin:0 21px 21px;}
 .side_nav a{color: #457;}
+.side_nav a:focus {
+  color: blue;
+}
 .top_nav{
   grid-area: top_nav; 
   display: grid;
@@ -618,7 +621,7 @@ button:hover {
 .dr-down .dr-inner {
   display: none;
 }
-.dr-down.active .dr-inner {
+.dr-down .active + .dr-inner {
   display: block;
 }
 .m-content{grid-area: m-content; padding: 21px;}
