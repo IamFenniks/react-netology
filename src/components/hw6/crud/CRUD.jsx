@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { noteReduser } from "./backend/noteReduser";
+import { noteReduser } from "../../../redusers/noteReduser";
 import CrudBody from "./crud-inner/CrudBody";
 import CrudForm from "./crud-inner/CrudForm";
 import UpdateBtn from "./crud-inner/UpdateBtn";
@@ -40,7 +40,7 @@ const CRUD = () => {
   const handleUpdate = async () => {
     const result = await noteReduser({method: 'get'});
     setState([...result]);
-    debugger
+    // debugger
   }
 
   return (

@@ -86,7 +86,7 @@ const SideNav = () => {
                     name: 'CRUD'
                 },{
                     link: 'chat-two',
-                    name: 'Collapse'
+                    name: 'Анонимный чат'
                 }
             ]
         }

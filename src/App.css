@@ -1753,3 +1753,25 @@ li.bar-head:last-child {
 
 
 /* HomeWork 6/3 ---- START */
+textarea#message {
+  margin: 0 5px;
+  width: 480px;
+}
+form.new-message button {
+  border: none;
+  color: green;
+}
+form.new-message button:hover {
+  background: none;
+  color: lightgreen;
+}
+form.new-message button:active {
+  color: darkgreen;
+}
+/* HomeWork 6/3 ---- END */
+
+
+/* ======================================================================= */
+
+
+/* HomeWork 7/1 ---- START */
