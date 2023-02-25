@@ -13,8 +13,8 @@ const ChatForm = ({ className, addData }) => {
     
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        
         let noteData = new ChatModel(nanoid(), form.message)
-        // console.log(notemessage)
         addData(noteData);
 
         setForm({ message: ''})
