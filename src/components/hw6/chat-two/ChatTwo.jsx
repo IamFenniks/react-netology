@@ -1,7 +1,8 @@
+import { nanoid } from "nanoid";
 import React, { useEffect, useState } from "react";
 import { chatReduser } from "../../../redusers/chatReduser";
 import ChatForm from "./chat-inner/ChatForm";
-import MessageHistory from "./MessageHistory";
+import MessageHistory from "./chat-inner/MessageHistory";
 
 const messages = [
   {
@@ -18,22 +19,30 @@ const messages = [
 
 const ChatTwo = () => {
   const [state, setState] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [cache, setCache] = useState('');
+
+  const win = window.localStorage;
 
   useEffect(() => {
-    const loadData = async () => {
-      const result = await chatReduser({method: 'get'});
-      setState([...result]);
-    }
-
-    loadData();
-
-    setLoading(false);
+    !win.getItem('userId') && win.setItem('userId', nanoid());
+    setCache(win.getItem('userId'));
   }, []);
 
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
+    setTimeout(() => {
+      const result = chatReduser({method: 'get'});
+      setState([...result]);  
+    }, 2000);
+    
+  }
+
   
-  const handleAddText =  async (noteData) => {
-    await chatReduser({ method: 'post', noteData });
+  const handleAddText =  async (messData) => {
+    await chatReduser({ method: 'post', messData });
 
     const result = await chatReduser({method: 'get'});
     setState([...result]);
@@ -44,7 +53,7 @@ const ChatTwo = () => {
     <div className="clearfix chat-container m-content">
       <div className="chat">
         <div className="chat-history">
-          <MessageHistory list={messages} />
+          <MessageHistory list={state} />
         </div>  
 
         <ChatForm className="new-message" addData={handleAddText} />

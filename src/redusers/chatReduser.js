@@ -1,4 +1,4 @@
-export const chatReduser = async ({id, noteData, method}) => {
+export const chatReduser = async ({id, userId, messData, method}) => {
   const baseURL = "http://localhost:7777/notes/";
   const convertedUrl = method === "delete" ? baseURL + "" + id : baseURL;
   const request = await fetch(convertedUrl, {
@@ -6,7 +6,7 @@ export const chatReduser = async ({id, noteData, method}) => {
       "Content-Type": "application/json",
     },
     method: method,
-    body: JSON.stringify(noteData),
+    body: JSON.stringify(messData),
   });
   
   const response = await request.json();

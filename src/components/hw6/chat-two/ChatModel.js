@@ -1,7 +1,7 @@
 class ChatModel {
-    constructor(id, text){
+    constructor(id, message){
         this.id = id
-        this.text = text;
+        this.message = message;
     }
 }
 export default ChatModel;
