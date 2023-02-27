@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import ChatModel from "../ChatModel";
+// import ChatModel from "../ChatModel";
 
 const ChatForm = ({ className, addData }) => {
     const [form, setForm] = useState({ message: '' });
@@ -12,12 +12,13 @@ const ChatForm = ({ className, addData }) => {
     }
     
     const handleSubmit = (evt) => {
+        debugger;
         evt.preventDefault();
         
-        let messData = new ChatModel(nanoid(), form.message)
-        addData(messData);
+        const messText = (form.message);
+        addData(messText);
 
-        setForm({ message: ''})
+        setForm({ message: ''});
     }
 
     return (
@@ -28,7 +29,7 @@ const ChatForm = ({ className, addData }) => {
                         name="message" 
                         id="message" 
                         rows="2"
-                        vdefaultValue={form.message}
+                        value={form.message}
                         onChange={handleChange}
                     ></textarea>
                 </label>

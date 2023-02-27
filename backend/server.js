@@ -10,6 +10,7 @@ app.use(cors());
 app.use(koaBody({json: true}));
 
 const notes = [];
+const messages = [];
 let nextId = 1;
 
 const router = new Router();
@@ -19,8 +20,7 @@ router.get('/notes', async (ctx, next) => {
 });
 
 router.post('/notes', async(ctx, next) => {
-    let data = JSON.parse(ctx.request.body)
-    console.log(data);
+    let data = JSON.parse(ctx.request.body);
     notes.push({...data, id: nextId++});
     ctx.response.body = {
         status: 'ok'
@@ -34,6 +34,31 @@ router.delete('/notes/:id', async(ctx, next) => {
         notes.splice(index, 1);
     }
     ctx.response.body = 204;
+});
+
+router.get("/messages", async (ctx, next) => {
+    const from = Number(ctx.request.query.from);
+    console.log(messages);
+    if (ctx.request.query.from === 0) {
+      ctx.response.body = messages;
+      return;
+    }
+  
+    const fromIndex = messages.findIndex((o) => o.id === from);
+    if (fromIndex === -1) {
+      ctx.response.body = messages;
+      return;
+    }
+  
+    ctx.response.body = messages.slice(fromIndex + 1);
+  });
+
+router.post("/messages", async (ctx, next) => {
+    let data = JSON.parse(ctx.request.body)
+    messages.push({...data, id: nextId++});
+    ctx.response.body = {
+        status: 'ok'
+    }
 });
 
 app.use(router.routes()).use(router.allowedMethods());

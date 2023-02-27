@@ -1,14 +1,17 @@
-export const chatReduser = async ({id, userId, messData, method}) => {
-  const baseURL = "http://localhost:7777/notes/";
-  const convertedUrl = method === "delete" ? baseURL + "" + id : baseURL;
-  const request = await fetch(convertedUrl, {
-    header: {
-      "Content-Type": "application/json",
-    },
+export const chatReduser = async ({id, payload, method}) => {
+  debugger
+  const baseURL = 'http://localhost:7777/messages';
+  const requestURL = method === 'get' ? baseURL + `?from=${id}` : baseURL
+  const request = await fetch(requestURL, {
     method: method,
-    body: JSON.stringify(messData),
+    header: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
   });
-  
-  const response = await request.json();
+  if (!request.ok) {
+    throw new Error("Something went wrong!");
+  }
+  const response = await request.json()
   return response;
-};
+}
