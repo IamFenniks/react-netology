@@ -13,38 +13,26 @@ const ChatTwo = () => {
 
   // (II) После отрисовки компонента:
   useEffect(() => {
-    // 1. Объявляем асинхронную функцию инервала: 
-    const timer = setTimeout(async() => {
-      // a) cохраняем ID поль-ля в localStorage
-      window.localStorage.setItem('userId', userID);
-      // b) получаем ответ(промис) от сервера, передав ему ID последнего сообщения и метод GET
-      const response = await chatReduser({method: 'get', id: lastMessID});
-      // c) если сообщений больше одного,
-      if(response.length !== 0) {
-        // то получаем(объявбяем ID) последнего, уменьшив индекс на ОДИН
-        const lastResID = response[response.length - 1].id;
-        // и, если ID последнего и отправленного не сервер не совпадают, 
-        if(lastResID !== lastMessID) {
-          // то добавляем в стейт сообщение
-          setMessages(prevMessages => [...prevMessages, ...response]);
-          // и ID последнего сообщения
-          setLastMessID(lastResID);
-        }
-      }
-    // d) указываем интервал обновления
-    }, 3000)
-    // 2. Сбрасываем тайминг, если пользователь ушёл со страницы(стоп рендеринг)
-    return () => {
-      clearTimeout(timer);
-    }
+    subscribe();
   }, []); // - componentDidMount()
 
+  const subscribe = async () => {
+    window.sessionStorage.setItem("userId", userID);
+    const response = await chatReduser({ method: "get", id: lastMessID }); // отправляем ID "0"
+    if (response.length !== 0) {
+      const lastResID = response[response.length - 1].id;
+      if (lastResID !== lastMessID) {
+        setMessages((prevMessages) => [...prevMessages, ...response]);
+        setLastMessID(lastResID);
+      }
+    }
+    // setTimeout(() => {
+    //   subscribe();
+    // }, 3000);
+  };
 
-
-  // (III) Добавление нового сообщения
   // Объявляем стрел. функцию, которая будет асинхр. в парам. получаем от события тело сообщения
-  const handleAddMessage =  async (messText) => {
-    debugger;
+  const handleAddMessage = async (messText) => {
     // Используем tru catch
     try {
       // в случае успеха объявляем переменную объекта, который комплектуем из...
@@ -54,19 +42,20 @@ const ChatTwo = () => {
         content: messText   // 3. и само сообщение
       }
       // отправляем на сервер этот объкет и метод post
-      await chatReduser({payload, method: 'post'});
-    // иначе перехватываем ошибку
+      await chatReduser({ payload, method: 'post' });
+      subscribe();
+      // иначе перехватываем ошибку
     } catch (error) {
       return <p>Ошибка: {error}</p>
     }
   }
-
+  debugger
   return (
     <div className="clearfix chat-container m-content">
       <div className="chat">
         <div className="chat-history">
           <MessageHistory list={messages} />
-        </div>  
+        </div>
 
         <ChatForm className="new-message" addData={handleAddMessage} />
       </div>

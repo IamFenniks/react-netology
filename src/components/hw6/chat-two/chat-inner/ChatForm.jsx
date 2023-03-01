@@ -12,7 +12,7 @@ const ChatForm = ({ className, addData }) => {
     }
     
     const handleSubmit = (evt) => {
-        debugger;
+        // debugger;
         evt.preventDefault();
         
         const messText = (form.message);

@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Message = ({ message }) => {
-    debugger
     return (
         <li>
             <div className="message-data">

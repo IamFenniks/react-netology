@@ -15,6 +15,8 @@ let nextId = 1;
 
 const router = new Router();
 
+// ++++++++++++++++++++++++ Notes +++++++++++++++++++++++++ //
+
 router.get('/notes', async (ctx, next) => {
     ctx.response.body = notes;
 });
@@ -36,9 +38,10 @@ router.delete('/notes/:id', async(ctx, next) => {
     ctx.response.body = 204;
 });
 
+// +++++++++++++++++++++++ Messages +++++++++++++++++++++++++ //
+
 router.get("/messages", async (ctx, next) => {
     const from = Number(ctx.request.query.from);
-    console.log(messages);
     if (ctx.request.query.from === 0) {
       ctx.response.body = messages;
       return;
@@ -53,9 +56,9 @@ router.get("/messages", async (ctx, next) => {
     ctx.response.body = messages.slice(fromIndex + 1);
   });
 
-router.post("/messages", async (ctx, next) => {
-    let data = JSON.parse(ctx.request.body)
-    messages.push({...data, id: nextId++});
+router.post("/messages", (ctx, next) => {
+    let data = ctx.body;
+    messages.push({...data});
     ctx.response.body = {
         status: 'ok'
     }

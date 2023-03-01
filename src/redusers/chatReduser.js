@@ -1,7 +1,6 @@
 export const chatReduser = async ({id, payload, method}) => {
-  debugger
   const baseURL = 'http://localhost:7777/messages';
-  const requestURL = method === 'get' ? baseURL + `?from=${id}` : baseURL
+  const requestURL = method === 'get' ? baseURL + `?from=${id}` : baseURL;
   const request = await fetch(requestURL, {
     method: method,
     header: {
@@ -9,6 +8,7 @@ export const chatReduser = async ({id, payload, method}) => {
     },
     body: JSON.stringify(payload)
   });
+  debugger
   if (!request.ok) {
     throw new Error("Something went wrong!");
   }
