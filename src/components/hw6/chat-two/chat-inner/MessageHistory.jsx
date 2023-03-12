@@ -1,10 +1,9 @@
 import React from "react";
 import Message from "./Message";
 import Response from "./Response";
-// import Typing from "./messages/Typing";
 
 const MessageHistory = ({ list }) => {
-    debugger;
+
     return (
         <ul>
              { list.map((item) => 
@@ -13,18 +12,14 @@ const MessageHistory = ({ list }) => {
                         key={item.id} 
                         message={item.content}
                         from="Вы"
+                        time={item.time}
                     />
                     : <Response 
                         key={item.id} 
                         message={item.content}
                         from="Гость"
+                        time={item.time}
                     />
-                // ||
-                // item.type === 'typing' && <Typing 
-                //     key={item.id} 
-                //     item={item}
-                //     from={item.from}
-                // />*/}
             ) } 
         </ul>
     );

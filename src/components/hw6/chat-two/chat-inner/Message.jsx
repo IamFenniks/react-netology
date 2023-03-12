@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Message = ({ message, from }) => {
+const Message = ({ message, from, time }) => {
     return (
         <li>
             <div className="message-data">
-                <span className="message-data-name">{}<span className="online">&#9679;</span> {}</span>
-                <span className="message-data-time">{from}</span>
+                <span className="message-data-name"><span className="online">&#9679;</span> {from}</span>
+                <span className="message-data-time">{time}</span>
             </div>
             <div className="message my-message">
                 { message }

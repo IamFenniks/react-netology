@@ -8,7 +8,7 @@ export const chatReduser = async ({id, payload, method}) => {
     },
     body: JSON.stringify(payload)
   });
-  debugger
+  
   if (!request.ok) {
     throw new Error("Something went wrong!");
   }
