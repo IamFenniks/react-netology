@@ -55,14 +55,15 @@ router.get("/messages", async (ctx, next) => {
   
     ctx.response.body = messages.slice(fromIndex + 1);
   });
-
-router.post("/messages", (ctx, next) => {
-    let data = ctx.body;
-    messages.push({...data});
-    ctx.response.body = {
-        status: 'ok'
-    }
-});
+  
+  router.post("/messages", async (ctx, next) => {
+      let data = JSON.parse(ctx.request.body)
+      messages.push({...data, id: nextId++});
+      ctx.response.body = {
+          status: 'ok'
+      }
+  });
+  
 
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Message from "./Message";
-// import Response from "./messages/Response";
+import Response from "./Response";
 // import Typing from "./messages/Typing";
 
 const MessageHistory = ({ list }) => {
@@ -8,16 +8,18 @@ const MessageHistory = ({ list }) => {
     return (
         <ul>
              { list.map((item) => 
-                <Message 
-                    key={item.id} 
-                    message={item.content}
-                />
-                
-                // item.type === 'response' && <Response 
-                //     key={item.id} 
-                //     item={item}
-                //     from={item.from}
-                // /> ||
+                sessionStorage.getItem('userId') === item.userId
+                    ? <Message 
+                        key={item.id} 
+                        message={item.content}
+                        from="Вы"
+                    />
+                    : <Response 
+                        key={item.id} 
+                        message={item.content}
+                        from="Гость"
+                    />
+                // ||
                 // item.type === 'typing' && <Typing 
                 //     key={item.id} 
                 //     item={item}

@@ -13,23 +13,25 @@ const ChatTwo = () => {
 
   // (II) После отрисовки компонента:
   useEffect(() => {
-    subscribe();
-  }, []); // - componentDidMount()
+    const timer = setInterval(async () => {
+      debugger
+      sessionStorage.length === 0 && sessionStorage.setItem('userId', userID);
+      setUserID(sessionStorage.getItem('userId'));
 
-  const subscribe = async () => {
-    window.sessionStorage.setItem("userId", userID);
-    const response = await chatReduser({ method: "get", id: lastMessID }); // отправляем ID "0"
-    if (response.length !== 0) {
-      const lastResID = response[response.length - 1].id;
-      if (lastResID !== lastMessID) {
-        setMessages((prevMessages) => [...prevMessages, ...response]);
-        setLastMessID(lastResID);
+      const response = await chatReduser({ method: "get", id: lastMessID }); // отправляем ID "0"
+      if (response.length !== 0) {
+        const lastResID = response[response.length - 1].id;
+        if (lastResID !== lastMessID) {
+          setMessages((prevMessages) => [...prevMessages, ...response]);
+          setLastMessID(lastResID);
+        }
       }
-    }
-    // setTimeout(() => {
-    //   subscribe();
-    // }, 3000);
-  };
+    }, 5000);
+    
+    return () => {
+      clearTimeout(timer)
+    };
+  }); 
 
   // Объявляем стрел. функцию, которая будет асинхр. в парам. получаем от события тело сообщения
   const handleAddMessage = async (messText) => {
@@ -43,7 +45,7 @@ const ChatTwo = () => {
       }
       // отправляем на сервер этот объкет и метод post
       await chatReduser({ payload, method: 'post' });
-      subscribe();
+      // subscribe();
       // иначе перехватываем ошибку
     } catch (error) {
       return <p>Ошибка: {error}</p>

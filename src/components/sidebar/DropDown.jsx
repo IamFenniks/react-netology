@@ -12,7 +12,16 @@ const DropDown = ({id, drop}) => {
             </span>
             <div className="dr-inner ">
 
-                { drop.map(d => <LinkItem key={nanoid()} link={d.link} name={d.name} />) }
+                { drop.map(d => 
+                    <LinkItem 
+                        key={nanoid()} 
+                        className={({ isActive }) => 
+                            (`${isActive ? "active" : ""}`)
+                        } 
+                        link={d.link} 
+                        name={d.name} 
+                    />) 
+                }
     
             </div>
         </div>

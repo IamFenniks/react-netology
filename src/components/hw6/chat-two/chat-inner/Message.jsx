@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Message = ({ message }) => {
+const Message = ({ message, from }) => {
     return (
         <li>
             <div className="message-data">
-                <span className="message-data-name"><span className="online">&#9679;</span> {}</span>
-                <span className="message-data-time">{}</span>
+                <span className="message-data-name">{}<span className="online">&#9679;</span> {}</span>
+                <span className="message-data-time">{from}</span>
             </div>
             <div className="message my-message">
                 { message }
@@ -15,10 +15,10 @@ const Message = ({ message }) => {
     );
 }
 
-Response.propTypes = {
-    from: { name: PropTypes.object.isRequired },
-    time: PropTypes.string.isRequired,
-    text: PropTypes.string
+Message.propTypes = {
+    message: PropTypes.object.isRequired,
+    from: PropTypes.string.isRequired,
+    // time: PropTypes.string.isRequired
 }
 
 

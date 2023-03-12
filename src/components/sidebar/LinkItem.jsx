@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const LinkItem = ({ link, name }) => {
+const LinkItem = ({ link, name, className }) => {
     return (
-        <div>&#x26C4; <Link to={link}>{ name }</Link></div>
+        <div>&#x26C4; <NavLink className={className} to={link}>{ name }</NavLink></div>
     );
 }
 
