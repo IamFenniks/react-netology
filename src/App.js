@@ -21,6 +21,7 @@ import Collapse from "./components/hw5/collapse/Collapse";
 import Watches from "./components/hw6/watches/Watches";
 import CRUD from "./components/hw6/crud/CRUD";
 import ChatTwo from "./components/hw6/chat-two/ChatTwo";
+import Main from "./components/main/Main";
 
 function App() {
   const item = {
@@ -46,6 +47,7 @@ function App() {
       <SideNav />
 
       <Routes>
+        <Route path="/react-netology"element={<Main />} />
         <Route path="/shopitem"      element={<ShopItemFunc item={item} />} />
         <Route path="/calendar"      element={<Calendar />} />
         <Route path="/portfolio"     element={<Portfolio />} />

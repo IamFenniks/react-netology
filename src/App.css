@@ -613,6 +613,7 @@ button:hover {
   border-bottom: 1px solid #fff;
 }
 .top_nav nav{padding: 21px;}
+.main-link{color: white;}
 .side_nav{grid-area: side_nav; position: relative; z-index: 100; padding: 20px;}
 .dr-down:hover {
   cursor: pointer;
@@ -624,8 +625,20 @@ button:hover {
 .dr-down .active + .dr-inner {
   display: block;
 }
+.dr-down span.active {
+  width: 100%;
+  display: block;
+  background: aliceblue;
+}
 .m-content{grid-area: m-content; padding: 21px;}
 
+.m-content .main-page{
+  text-align: center;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+}
 
                          /* ------------------ */
 /* ==========================  Home Work 2  ========================= */
